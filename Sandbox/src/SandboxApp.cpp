@@ -1,9 +1,20 @@
-namespace Clover
-{
-	__declspec(dllimport) void Print();
-}
+#include <Clover.h>
 
-int main()
+class Sandbox : public Clover::Application
 {
-	Clover::Print();
+public:
+	Sandbox()
+	{
+
+	}
+
+	~Sandbox()
+	{
+
+	}
+};
+
+Clover::Application* Clover::CreateApplication()
+{
+	return new Sandbox();
 }

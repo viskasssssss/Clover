@@ -4,6 +4,9 @@
     <Filter Include="Clover">
       <UniqueIdentifier>{D0DE09AC-BC80-3482-A53B-48D6917CBBD2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Clover\Events">
+      <UniqueIdentifier>{B4C0767F-2081-F2B5-E9BB-3B33553B3792}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Clover.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Clover\EntryPoint.h">
       <Filter>Clover</Filter>
     </ClInclude>
+    <ClInclude Include="src\Clover\Events\ApplicationEvent.h">
+      <Filter>Clover\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Events\Event.h">
+      <Filter>Clover\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Events\KeyEvent.h">
+      <Filter>Clover\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Events\MouseEvent.h">
+      <Filter>Clover\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Clover\Log.h">
       <Filter>Clover</Filter>
     </ClInclude>
+    <ClInclude Include="src\cvpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Clover\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Clover\Log.cpp">
       <Filter>Clover</Filter>
     </ClCompile>
+    <ClCompile Include="src\cvpch.cpp" />
   </ItemGroup>
 </Project>

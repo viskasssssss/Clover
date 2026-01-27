@@ -18,6 +18,9 @@ project "Clover"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "cvpch.h"
+	pchsource "Clover/src/cvpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -26,7 +29,8 @@ project "Clover"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"Clover/src"
 	}
 
 	buildoptions { "/utf-8" }

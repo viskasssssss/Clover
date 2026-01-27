@@ -57,6 +57,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>CLOVER_PLATFORM_WINDOWS;CLOVER_BUILD_DLL;_WINDLL;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Clover/vendor/spdlog/include;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,6 +73,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>CLOVER_PLATFORM_WINDOWS;CLOVER_BUILD_DLL;_WINDLL;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Clover/vendor/spdlog/include;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,12 +84,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Clover\Log.h" />
     <ClInclude Include="src\Clover.h" />
     <ClInclude Include="src\Clover\Application.h" />
     <ClInclude Include="src\Clover\Core.h" />
     <ClInclude Include="src\Clover\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Clover\Log.cpp" />
     <ClCompile Include="src\Clover\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

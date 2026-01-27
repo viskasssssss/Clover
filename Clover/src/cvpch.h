@@ -13,6 +13,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Clover/Log.h"
+#include "Clover/Events/Event.h"
+
 #ifdef CLOVER_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

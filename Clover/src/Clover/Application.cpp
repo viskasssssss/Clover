@@ -1,20 +1,45 @@
 #include "cvpch.h"
 #include "Application.h"
 
-#include "Clover/Events/ApplicationEvent.h"
 #include "Clover/Log.h"
+
+// TODO: remove
+#include <GLFW/glfw3.h>
 
 namespace Clover
 {
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
+	Application::Application()
+	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+	}
+
 	Application::~Application()
 	{
 	}
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		CLOVER_TRACE("{0}", e.ToString());
+		while (m_Running)
+		{
+			glClearColor(0.65, 0.15, 0.9, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
+		}
+	}
 
-		while (true);
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+
+		CLOVER_CORE_TRACE("{0}", e.ToString());
+	}
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 }

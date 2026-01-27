@@ -10,6 +10,12 @@ workspace "Clover"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include Directories
+IncludeDir = {}
+IncludeDir["GLFW"] = "Clover/vendor/GLFW/include"
+
+include "Clover/vendor/GLFW"
+
 project "Clover"
 	location "Clover"
 	kind "SharedLib"
@@ -30,7 +36,15 @@ project "Clover"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"Clover/src"
+		"Clover/src",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	buildoptions { "/utf-8" }
@@ -54,6 +68,11 @@ project "Clover"
 	filter "configurations:Debug"
 		defines "CLOVER_DEBUG"
 		symbols "On"
+
+		defines
+		{
+			"CLOVER_ENABLE_ASSERTS"
+		}
 
 	filter "configurations:Debug"
 		defines "CLOVER_RELEASE"
@@ -80,7 +99,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Clover/vendor/spdlog/include",
-		"Clover/src"
+		"Clover/src",
+		"%{IncludeDir.GLFW}"
 	}
 
 	buildoptions { "/utf-8" }

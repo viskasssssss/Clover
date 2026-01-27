@@ -1,5 +1,6 @@
 #pragma once
 
+#include "cvpch.h"
 #include "Clover/Core.h"
 
 namespace Clover {
@@ -68,9 +69,4 @@ namespace Clover {
 	private:
 		Event& m_Event;
 	};
-
-	inline std::ostream& operator<<(std::ostream& os, const Event& e)
-	{
-		return os << e.ToString();
-	}
 }

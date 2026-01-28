@@ -29,6 +29,9 @@ namespace Clover {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
+	/**
+	* @brief Base Class for All Events in Clover
+	*/
 	class CLOVER_API Event
 	{
 		friend class EventDispatcher;
@@ -46,6 +49,9 @@ namespace Clover {
 		}
 	};
 
+	/**
+	* @brief Class for Dispatching Events in Clover
+	*/
 	class EventDispatcher
 	{
 		template<typename T>

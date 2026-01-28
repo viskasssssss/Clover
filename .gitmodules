@@ -4,3 +4,6 @@
 [submodule "Clover/vendor/GLFW"]
 	path = Clover/vendor/GLFW
 	url = https://github.com/viskasssssss/glfw
+[submodule "Clover/vendor/imgui"]
+	path = Clover/vendor/imgui
+	url = https://github.com/viskasssssss/imgui

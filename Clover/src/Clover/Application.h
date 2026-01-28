@@ -4,6 +4,7 @@
 
 #include "Window.h"
 #include "Clover/LayerStack.h"
+
 #include "Clover/Events/Event.h"
 #include "Clover/Events/ApplicationEvent.h"
 
@@ -11,6 +12,7 @@
 
 // TEMPORARY
 #include "Clover/Renderer/Shader.h"
+#include "Clover/Renderer/Buffer.h"
 
 namespace Clover
 {
@@ -37,8 +39,10 @@ namespace Clover
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray;
 		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 
 		static Application* s_Instance;
 	};

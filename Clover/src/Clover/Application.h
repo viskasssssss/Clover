@@ -7,6 +7,7 @@
 #include "Clover/Events/Event.h"
 #include "Clover/Events/ApplicationEvent.h"
 
+#include "Clover/ImGui/ImGuiLayer.h"
 
 namespace Clover
 {
@@ -29,6 +30,7 @@ namespace Clover
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

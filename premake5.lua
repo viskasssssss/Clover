@@ -117,6 +117,7 @@ project "Sandbox"
 		"Clover/vendor/spdlog/include",
 		"Clover/src",
 		"%{IncludeDir.GLFW}",
+		"Clover/vendor",
 		"%{IncludeDir.glm}"
 	}
 

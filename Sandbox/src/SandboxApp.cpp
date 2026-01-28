@@ -1,5 +1,7 @@
 #include <Clover.h>
 
+#include <imgui/imgui.h>
+
 class ExampleLayer : public Clover::Layer
 {
 public:
@@ -10,10 +12,15 @@ public:
 
 	void OnUpdate() override
 	{
-		//CLOVER_INFO("ExampleLayer::OnUpdate");
-
 		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Tab))
 			CLOVER_INFO("Tab is pressed");
+	}
+
+	void OnImGuiRender() override
+	{
+		//ImGui::Begin("Test");
+		//ImGui::Text("This is a test");
+		//ImGui::End();
 	}
 
 	void OnEvent(Clover::Event& event) override
@@ -32,7 +39,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Clover::ImGuiLayer());
 	}
 
 	~Sandbox()

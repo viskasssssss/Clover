@@ -162,7 +162,9 @@
     <ClInclude Include="src\Clover\Log.h" />
     <ClInclude Include="src\Clover\Math.h" />
     <ClInclude Include="src\Clover\MouseButtonCodes.h" />
+    <ClInclude Include="src\Clover\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Clover\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cvpch.h" />
@@ -593,6 +595,7 @@
     <ClCompile Include="src\Clover\Layer.cpp" />
     <ClCompile Include="src\Clover\LayerStack.cpp" />
     <ClCompile Include="src\Clover\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\cvpch.cpp">

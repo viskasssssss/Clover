@@ -9,6 +9,8 @@
 
 namespace Clover
 {
+	// TODO: Math Class
+	
 	using Vector4 = glm::vec4;
 	using Vector3 = glm::vec3;
 	using Vector2 = glm::vec2;

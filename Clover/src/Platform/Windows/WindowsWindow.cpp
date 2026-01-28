@@ -1,11 +1,10 @@
 #include "cvpch.h"
 #include "WindowsWindow.h"
+#include "Clover/Renderer/GraphicsContext.h"
 
 #include "Clover/Events/ApplicationEvent.h"
 #include "Clover/Events/KeyEvent.h"
 #include "Clover/Events/MouseEvent.h"
-
-#include <glad/glad.h>
 
 namespace Clover
 {
@@ -38,6 +37,8 @@ namespace Clover
 		m_Data.Height = props.Height;
 
 		CLOVER_CORE_INFO("Initializing Window '{0}' ({1}x{2})", props.Title, props.Width, props.Height);
+		
+		// TODO: Vulkan, DX11
 
 		if (!s_GLFWInitialized)
 		{
@@ -48,9 +49,10 @@ namespace Clover
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		CLOVER_CORE_ASSERT(status, "Failed to initialize glad");
+
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -145,7 +147,8 @@ namespace Clover
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
+		
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

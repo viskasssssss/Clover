@@ -35,7 +35,7 @@ namespace Clover
 	{
 		while (m_Running)
 		{
-			glClearColor(0.65f, 0.15f, 0.9f, 1.0f);
+			glClearColor(0.15f, 0.15f, 0.20f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)

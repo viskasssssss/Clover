@@ -17,6 +17,11 @@ namespace Clover
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		CLOVER_CORE_ASSERT(status, "Failed to initialize glad");
+
+		CLOVER_CORE_INFO("OpenGL Info:");
+		CLOVER_CORE_INFO("  Vendor: {0}", (const char*)glGetString(GL_VENDOR));
+		CLOVER_CORE_INFO("  Renderer: {0}", (const char*)glGetString(GL_RENDERER));
+		CLOVER_CORE_INFO("  Version: {0}", (const char*)glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers()

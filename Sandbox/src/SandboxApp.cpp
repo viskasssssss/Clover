@@ -18,9 +18,9 @@ public:
 
 	void OnImGuiRender() override
 	{
-		//ImGui::Begin("Test");
-		//ImGui::Text("This is a test");
-		//ImGui::End();
+		ImGui::Begin("Test");
+		ImGui::Text("This is a test");
+		ImGui::End();
 	}
 
 	void OnEvent(Clover::Event& event) override

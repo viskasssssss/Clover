@@ -23,8 +23,10 @@ include "Clover/vendor/imgui"
 
 project "Clover"
 	location "Clover"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -42,8 +44,8 @@ project "Clover"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include",
 		"Clover/src",
+		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
@@ -62,8 +64,6 @@ project "Clover"
 	buildoptions { "/utf-8" }
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -73,35 +73,27 @@ project "Clover"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
 		defines "CLOVER_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
-		defines
-		{
-			"CLOVER_ENABLE_ASSERTS"
-		}
-
-	filter "configurations:Debug"
+	filter "configurations:Release"
 		defines "CLOVER_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
-	filter "configurations:Debug"
+	filter "configurations:Dist"
 		defines "CLOVER_DIST"
-		buildoptions "/MD"
-		symbols "On"
+		runtime "Release"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -110,6 +102,11 @@ project "Sandbox"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -129,7 +126,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -140,15 +136,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "CLOVER_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
-	filter "configurations:Debug"
+	filter "configurations:Release"
 		defines "CLOVER_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
-	filter "configurations:Debug"
+	filter "configurations:Dist"
 		defines "CLOVER_DIST"
-		buildoptions "/MD"
-		symbols "On"
+		runtime "Release"
+		symbols "on"

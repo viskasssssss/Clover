@@ -7,3 +7,6 @@
 [submodule "Clover/vendor/imgui"]
 	path = Clover/vendor/imgui
 	url = https://github.com/viskasssssss/imgui
+[submodule "Clover/vendor/glm"]
+	path = Clover/vendor/glm
+	url = https://github.com/g-truc/glm

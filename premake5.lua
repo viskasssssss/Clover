@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Clover/vendor/GLFW/include"
 IncludeDir["Glad"] = "Clover/vendor/Glad/include"
 IncludeDir["ImGui"] = "Clover/vendor/imgui"
+IncludeDir["glm"] = "Clover/vendor/glm"
 
 include "Clover/vendor/GLFW"
 include "Clover/vendor/Glad"
@@ -34,7 +35,9 @@ project "Clover"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -43,7 +46,8 @@ project "Clover"
 		"Clover/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 	
 	links
@@ -112,7 +116,8 @@ project "Sandbox"
 	{
 		"Clover/vendor/spdlog/include",
 		"Clover/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glm}"
 	}
 
 	buildoptions { "/utf-8" }

@@ -5,7 +5,8 @@ class ExampleLayer : public Clover::Layer
 public:
 	ExampleLayer()
 		: Layer("Example")
-	{}
+	{
+	}
 
 	void OnUpdate() override
 	{

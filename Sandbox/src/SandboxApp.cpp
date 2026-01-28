@@ -9,12 +9,19 @@ public:
 
 	void OnUpdate() override
 	{
-		CLOVER_INFO("ExampleLayer::OnUpdate");
+		//CLOVER_INFO("ExampleLayer::OnUpdate");
+
+		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Tab))
+			CLOVER_INFO("Tab is pressed");
 	}
 
 	void OnEvent(Clover::Event& event) override
 	{
-		CLOVER_TRACE("{0}", event.ToString());
+		if (event.GetEventType() == Clover::EventType::KeyPressed)
+		{
+			Clover::KeyPressedEvent& e = (Clover::KeyPressedEvent&)event;
+			CLOVER_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
@@ -24,6 +31,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Clover::ImGuiLayer());
 	}
 
 	~Sandbox()

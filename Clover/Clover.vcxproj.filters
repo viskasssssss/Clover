@@ -37,6 +37,12 @@
     <ClInclude Include="src\Clover\Events\MouseEvent.h">
       <Filter>Clover\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Clover\Layer.h">
+      <Filter>Clover</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\LayerStack.h">
+      <Filter>Clover</Filter>
+    </ClInclude>
     <ClInclude Include="src\Clover\Log.h">
       <Filter>Clover</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Clover\Application.cpp">
+      <Filter>Clover</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Layer.cpp">
+      <Filter>Clover</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\LayerStack.cpp">
       <Filter>Clover</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Log.cpp">

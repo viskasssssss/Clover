@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include Directories
 IncludeDir = {}
 IncludeDir["GLFW"] = "Clover/vendor/GLFW/include"
+IncludeDir["Glad"] = "Clover/vendor/Glad/include"
 
 include "Clover/vendor/GLFW"
+include "Clover/vendor/Glad"
 
 project "Clover"
 	location "Clover"
@@ -37,12 +39,14 @@ project "Clover"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"Clover/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 	
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
@@ -57,7 +61,8 @@ project "Clover"
 		defines
 		{
 			"CLOVER_PLATFORM_WINDOWS",
-			"CLOVER_BUILD_DLL"
+			"CLOVER_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -67,6 +72,7 @@ project "Clover"
 
 	filter "configurations:Debug"
 		defines "CLOVER_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 		defines
@@ -76,10 +82,12 @@ project "Clover"
 
 	filter "configurations:Debug"
 		defines "CLOVER_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Debug"
 		defines "CLOVER_DIST"
+		buildoptions "/MD"
 		symbols "On"
 
 project "Sandbox"
@@ -122,12 +130,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "CLOVER_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Debug"
 		defines "CLOVER_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Debug"
 		defines "CLOVER_DIST"
+		buildoptions "/MD"
 		symbols "On"

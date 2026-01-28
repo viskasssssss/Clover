@@ -2,10 +2,11 @@
 
 #include "Core.h"
 
+#include "Window.h"
+#include "Clover/LayerStack.h"
 #include "Clover/Events/Event.h"
 #include "Clover/Events/ApplicationEvent.h"
 
-#include "Window.h"
 
 namespace Clover
 {
@@ -18,11 +19,15 @@ namespace Clover
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
 	// Defined in CLIENT

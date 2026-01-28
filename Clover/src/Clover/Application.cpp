@@ -2,9 +2,10 @@
 #include "Application.h"
 
 #include "Clover/Log.h"
+#include "Layer.h"
 
 // TODO: remove
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Clover
 {
@@ -26,6 +27,10 @@ namespace Clover
 		{
 			glClearColor(0.65, 0.15, 0.9, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -36,7 +41,26 @@ namespace Clover
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
 		CLOVER_CORE_TRACE("{0}", e.ToString());
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
 	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+
+		m_LayerStack.PushOverlay(overlay);
+	}
+
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
 		m_Running = false;

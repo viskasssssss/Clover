@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Clover/Core.h"
+#include "Clover/Core/Timestep.h"
 #include "Clover/Events/Event.h"
 
 namespace Clover
@@ -13,7 +14,7 @@ namespace Clover
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

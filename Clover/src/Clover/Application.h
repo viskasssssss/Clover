@@ -8,13 +8,9 @@
 #include "Clover/Events/Event.h"
 #include "Clover/Events/ApplicationEvent.h"
 
-#include "Clover/ImGui/ImGuiLayer.h"
+#include "Clover/Core/Timestep.h"
 
-// TEMPORARY
-#include "Clover/Renderer/Shader.h"
-#include "Clover/Renderer/Buffer.h"
-#include "Clover/Renderer/VertexArray.h"
-#include "Clover/Renderer/OrthographicCamera.h"
+#include "Clover/ImGui/ImGuiLayer.h"
 
 namespace Clover
 {
@@ -40,14 +36,7 @@ namespace Clover
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 
 		static Application* s_Instance;
 	};

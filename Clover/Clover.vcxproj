@@ -149,6 +149,7 @@
     <ClInclude Include="src\Clover.h" />
     <ClInclude Include="src\Clover\Application.h" />
     <ClInclude Include="src\Clover\Core.h" />
+    <ClInclude Include="src\Clover\Core\Timestep.h" />
     <ClInclude Include="src\Clover\EntryPoint.h" />
     <ClInclude Include="src\Clover\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Clover\Events\Event.h" />

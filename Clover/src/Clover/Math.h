@@ -10,7 +10,6 @@
 namespace Clover
 {
 	// TODO: Math Class
-	
 	using Vector4 = glm::vec4;
 	using Vector3 = glm::vec3;
 	using Vector2 = glm::vec2;
@@ -21,10 +20,14 @@ namespace Clover
 	using Matrix3x3 = glm::mat3x3;
 	using Matrix3 = glm::mat3;
 
+	using Matrix2x2 = glm::mat2x2;
+	using Matrix2 = glm::mat2;
+
 	using vec4 = Vector4;
 	using vec3 = Vector3;
 	using vec2 = Vector2;
 
 	using mat4 = Matrix4;
 	using mat3 = Matrix3;
+	using mat2 = Matrix2;
 }

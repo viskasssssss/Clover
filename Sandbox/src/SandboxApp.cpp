@@ -6,7 +6,7 @@ class ExampleLayer : public Clover::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f), m_SquarePosition(0.0f)
 	{
 		m_VertexArray.reset(Clover::VertexArray::Create());
 
@@ -36,10 +36,10 @@ public:
 		m_SquareVA.reset(Clover::VertexArray::Create());
 
 		float squareVertices[12] = {
-			-0.75f, -0.75f, 0.0f,
-			 0.75f, -0.75f, 0.0f,
-			 0.75f,  0.75f, 0.0f,
-			-0.75f,  0.75f, 0.0f,
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.5f,  0.5f, 0.0f,
+			-0.5f,  0.5f, 0.0f,
 		};
 
 		std::shared_ptr<Clover::VertexBuffer> squareVB;
@@ -62,6 +62,7 @@ layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
 
 uniform mat4 u_ViewProjection;
+uniform mat4 u_Transform;
 
 out vec3 v_Position;
 out vec4 v_Color;
@@ -70,7 +71,7 @@ void main()
 {
 	v_Position = a_Position;
 	v_Color = a_Color;
-	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+	gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
 }
 )";
 
@@ -97,13 +98,14 @@ void main()
 layout(location = 0) in vec3 a_Position;
 
 uniform mat4 u_ViewProjection;
+uniform mat4 u_Transform;
 
 out vec3 v_Position;
 
 void main()
 {
 	v_Position = a_Position;
-	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+	gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
 }
 )";
 
@@ -147,7 +149,18 @@ void main()
 
 		Clover::Renderer::BeginScene(m_Camera);
 
-		Clover::Renderer::Submit(m_BlueShader, m_SquareVA);
+		Clover::mat4 scale = glm::scale(Clover::mat4(1.0f), Clover::vec3(0.1f));
+
+		for (int y = 0; y < 20; y++)
+		{
+			for (int x = 0; x < 20; x++)
+			{
+				Clover::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
+				Clover::mat4 transform = glm::translate(Clover::mat4(1.0f), pos) * scale;
+				Clover::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+			}
+		}
+
 		Clover::Renderer::Submit(m_Shader, m_VertexArray);
 
 		Clover::Renderer::EndScene();

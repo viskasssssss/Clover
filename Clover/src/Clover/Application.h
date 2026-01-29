@@ -14,6 +14,7 @@
 #include "Clover/Renderer/Shader.h"
 #include "Clover/Renderer/Buffer.h"
 #include "Clover/Renderer/VertexArray.h"
+#include "Clover/Renderer/OrthographicCamera.h"
 
 namespace Clover
 {
@@ -45,6 +46,8 @@ namespace Clover
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 
 		static Application* s_Instance;
 	};

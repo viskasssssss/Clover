@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Clover/Math.h"
 
 namespace Clover
 {
@@ -12,6 +13,8 @@ namespace Clover
 
 		void Bind() const;
 		void Unbind() const;
+
+		void UploadUniformMat4(const std::string& name, const mat4& matrix);
 	private:
 		uint32_t m_RendererID;
 	};

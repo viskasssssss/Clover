@@ -6,6 +6,7 @@
 #include <glm/ext/matrix_transform.hpp> 
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/scalar_constants.hpp> 
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Clover
 {
@@ -13,6 +14,10 @@ namespace Clover
 	using Vector4 = glm::vec4;
 	using Vector3 = glm::vec3;
 	using Vector2 = glm::vec2;
+
+	using Color = Vector4;
+	using RGBColor = Vector3;
+	using RGBAColor = Color;
 
 	using Matrix4x4 = glm::mat4x4;
 	using Matrix4 = glm::mat4;
@@ -26,6 +31,8 @@ namespace Clover
 	using vec4 = Vector4;
 	using vec3 = Vector3;
 	using vec2 = Vector2;
+
+	using color = Color;
 
 	using mat4 = Matrix4;
 	using mat3 = Matrix3;

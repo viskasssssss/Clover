@@ -7,7 +7,7 @@ extern Clover::Application* Clover::CreateApplication();
 void main(int argc, char** argv)
 {
 	Clover::Log::Init();
-	CLOVER_CORE_WARN("Initialized Log");
+	CLOVER_CORE_INFO("Initialized Log");
 
 	auto app = Clover::CreateApplication();
 	app->Run();

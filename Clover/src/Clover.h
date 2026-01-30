@@ -15,6 +15,8 @@
 
 #include "Clover/ImGui/ImGuiLayer.h"
 
+#include "Clover/OrthographicCameraController.h"
+
 // -- Rendering
 #include "Clover/Renderer/Renderer.h"
 #include "Clover/Renderer/RenderCommand.h"

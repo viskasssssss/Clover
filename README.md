@@ -11,10 +11,10 @@
 >
 > Use with caution — this project is intended for experimentation, learning, and contribution, not for shipping games at this stage.
 
-## Building
-Clone repository:
+## Getting Started
+Clone this repository:
 ``` bash
-git clone https://github.com/viskasssssss/Clover
+git clone --recursive https://github.com/viskasssssss/Clover
 ```
 Run __GenerateProjects.bat__ to generate Visual Studio Solution
 

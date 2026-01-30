@@ -1,0 +1,35 @@
+#pragma once
+
+#include "Renderer/OrthographicCamera.h"
+#include "Clover/Core/Timestep.h"
+
+#include "Clover/Events/ApplicationEvent.h"
+#include "Clover/Events/MouseEvent.h"
+
+namespace Clover
+{
+	class OrthographicCameraController
+	{
+	public:
+		OrthographicCameraController(float aspectratio, bool rotation = false);
+
+		void OnUpdate(Timestep ts);
+		void OnEvent(Event& e);
+
+		OrthographicCamera& GetCamera() { return m_Camera; }
+		const OrthographicCamera& GetCamera() const { return m_Camera; }
+	private:
+		bool OnMouseScrolled(MouseScrolledEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
+
+		float m_AspectRatio;
+		float m_ZoomLevel = 1.0f;
+		OrthographicCamera m_Camera;
+
+		bool m_Rotation;
+		vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
+		float m_CameraRotation = 0.0f;
+
+		float m_CameraTranslationSpeed = 1.0f, m_CameraRotationSpeed = 1.0f;
+	};
+}

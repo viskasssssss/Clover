@@ -163,6 +163,7 @@
     <ClInclude Include="src\Clover\Log.h" />
     <ClInclude Include="src\Clover\Math.h" />
     <ClInclude Include="src\Clover\MouseButtonCodes.h" />
+    <ClInclude Include="src\Clover\OrthographicCameraController.h" />
     <ClInclude Include="src\Clover\Renderer\Buffer.h" />
     <ClInclude Include="src\Clover\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Clover\Renderer\OrthographicCamera.h" />
@@ -610,6 +611,7 @@
     <ClCompile Include="src\Clover\Layer.cpp" />
     <ClCompile Include="src\Clover\LayerStack.cpp" />
     <ClCompile Include="src\Clover\Log.cpp" />
+    <ClCompile Include="src\Clover\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Clover\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Clover\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Clover\Renderer\RenderCommand.cpp" />

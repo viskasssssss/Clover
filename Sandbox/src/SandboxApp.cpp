@@ -8,7 +8,7 @@ class ExampleLayer : public Clover::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Clover::VertexArray::Create());
 
@@ -140,27 +140,12 @@ void main()
 
 	void OnUpdate(Clover::Timestep ts) override
 	{
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Left))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Right))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Down))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::Up))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (Clover::Input::IsKeyPressed(Clover::KeyCode::D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
+		m_CameraController.OnUpdate(ts);
 
 		Clover::RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.10f, 1.0f });
 		Clover::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Clover::Renderer::BeginScene(m_Camera);
+		Clover::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		Clover::mat4 scale = glm::scale(Clover::mat4(1.0f), Clover::vec3(0.1f));
 
@@ -204,9 +189,9 @@ void main()
 		ImGui::End();
 	}
 
-	void OnEvent(Clover::Event& event) override
+	void OnEvent(Clover::Event& e) override
 	{
-		
+		m_CameraController.OnEvent(e);
 	}
 private:
 	Clover::ShaderLibrary m_ShaderLibrary;
@@ -218,12 +203,7 @@ private:
 
 	Clover::Ref<Clover::Texture2D> m_Texture, m_CloverLogoTexture;
 
-	Clover::OrthographicCamera m_Camera;
-	Clover::vec3 m_CameraPosition;
-	float m_CameraRotation = 0.0f;
-
-	float m_CameraMoveSpeed = 5.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Clover::OrthographicCameraController m_CameraController;
 
 	Clover::RGBColor m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

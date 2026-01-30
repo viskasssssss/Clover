@@ -7,6 +7,11 @@ namespace Clover
 	class RenderCommand
 	{
 	public:
+		inline static void Init()
+		{
+			s_RendererAPI->Init();
+		}
+
 		inline static void SetClearColor(const Color& color)
 		{
 			s_RendererAPI->SetClearColor(color);

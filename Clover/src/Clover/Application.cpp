@@ -2,13 +2,15 @@
 #include "Application.h"
 
 #include "Clover/Log.h"
+#include "Clover/Input.h"
 #include "Layer.h"
+
+#include "Clover/Renderer/Renderer.h"
 
 // TODO: remove
 #include <GLFW/glfw3.h>
 
 
-#include "Clover/Input.h"
 
 namespace Clover
 {
@@ -25,6 +27,8 @@ namespace Clover
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);

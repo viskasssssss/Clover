@@ -16,23 +16,37 @@ namespace Clover
 		m_Width = width;
 		m_Height = height;
 
+		GLenum internalFormat = 0, dataFormat = 0;
+		if (channels == 1)
+		{
+			internalFormat = GL_RED;
+			dataFormat = GL_RED;
+		}
+		else if (channels == 2)
+		{
+			internalFormat = GL_RG;
+			dataFormat = GL_RG;
+		}
+		else if (channels == 3)
+		{
+			internalFormat = GL_RGB8;
+			dataFormat = GL_RGB;
+		}
+		else if (channels == 4)
+		{
+			internalFormat = GL_RGBA8;
+			dataFormat = GL_RGBA;
+		}
+
+		CLOVER_CORE_ASSERT(internalFormat & dataFormat, "Format not supported");
+
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
-		glTextureStorage2D(m_RendererID, 1, GL_RGBA8, m_Width, m_Height);
+		glTextureStorage2D(m_RendererID, 1, internalFormat, m_Width, m_Height);
 
 		glTextureParameteri(m_RendererID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTextureParameteri(m_RendererID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		GLenum format = GL_RGB;
-		if (channels == 1)
-			format = GL_RED;
-		else if (channels == 2)
-			format = GL_RG;
-		else if (channels == 3)
-			format = GL_RGB;
-		else if (channels == 4)
-			format = GL_RGBA;
-
-		glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, format, GL_UNSIGNED_BYTE, data);
+		glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
 
 		stbi_image_free(data);
 	}

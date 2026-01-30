@@ -166,6 +166,7 @@ void main()
 		m_TextureShader.reset(Clover::Shader::Create(textureVertexSrc, textureFragmentSrc));
 
 		m_Texture = Clover::Texture2D::Create("assets/textures/cat.png");
+		m_CloverLogoTexture = Clover::Texture2D::Create("assets/textures/Clover-Logo.png"); 
 
 		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -214,6 +215,12 @@ void main()
 		m_Texture->Bind();
 		Clover::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(Clover::mat4(1.0f), Clover::vec3(1.5f)));
 
+		m_CloverLogoTexture->Bind();
+		Clover::Renderer::Submit(m_TextureShader, m_SquareVA, 
+			glm::translate(Clover::mat4(1.0f), Clover::vec3(1.5f, 0.0f, 0.0f)) *  glm::scale(Clover::mat4(1.0f), Clover::vec3(1.5f))
+		);
+
+
 		// Triangle
 		//Clover::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -240,7 +247,7 @@ private:
 	Clover::Ref<Clover::Shader> m_FlatColorShader, m_TextureShader;
 	Clover::Ref<Clover::VertexArray> m_SquareVA;
 
-	Clover::Ref<Clover::Texture2D> m_Texture;
+	Clover::Ref<Clover::Texture2D> m_Texture, m_CloverLogoTexture;
 
 	Clover::OrthographicCamera m_Camera;
 	Clover::vec3 m_CameraPosition;

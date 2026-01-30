@@ -11,15 +11,31 @@
 >
 > Use with caution — this project is intended for experimentation, learning, and contribution, not for shipping games at this stage.
 
-### About
+## Building
+Clone repository:
+``` bash
+git clone https://github.com/viskasssssss/Clover
+```
+Run __GenerateProjects.bat__ to generate Visual Studio Solution
+
+## About
 Clover Engine is a modern, data-oriented game engine focused on performance, flexibility, and developer experience. Inspired by the design principles of high-performance engines, Clover aims to provide a clean, modular, and extensible foundation for building 2D and 3D games.
 
 While heavily inspired by [TheCherno's Hazel Engine](https://github.com/TheCherno/Hazel), Clover diverges with its own goals — including improved ECS integration, better resource management, and a stronger focus on editor usability and tooling.
 
+### Current Status
+
+As of now, Clover supports:
+- 2D rendering with OpenGL backend
+- Basic windowing and input handling
+
+The core infrastructure is under active refactoring to support upcoming features such as full 3D rendering, multi-API backends, and an integrated editor.
+
 ### Current Goals (Subject to Change)
 - Rendering backend abstraction (Vulkan/DX11 in progress)
+- Implement 3D rendering pipeline (mesh loading, transforms, cameras)
 - Entity Component System (ECS) foundation
-- In-editor scripting and scene management (planned)
+- In-editor scripting and scene management 
 - Runtime gameplay logic support
 
 ### Want to Contribute?

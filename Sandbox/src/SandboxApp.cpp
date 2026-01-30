@@ -1,12 +1,15 @@
 #include <Clover.h>
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include <imgui/imgui.h>
+
 
 class ExampleLayer : public Clover::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f), m_SquarePosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
 	{
 		m_VertexArray.reset(Clover::VertexArray::Create());
 
@@ -90,9 +93,9 @@ void main()
 }
 )";
 
-		m_Shader.reset(new Clover::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(Clover::Shader::Create(vertexSrc, fragmentSrc));
 
-		std::string blueVertexSrc = R"(
+		std::string flatColorVertexSrc = R"(
 #version 330 core
 
 layout(location = 0) in vec3 a_Position;
@@ -109,20 +112,22 @@ void main()
 }
 )";
 
-		std::string blueFragmentSrc = R"(
+		std::string flatColorFragmentSrc = R"(
 #version 330 core
 
 layout(location = 0) out vec4 color;
+
+uniform vec3 u_Color;
  
 in vec3 v_Position;
 
 void main()
 {
-	color = vec4(0.2, 0.3, 0.8, 1.0);
+	color = vec4(u_Color, 1.0);
 }
 )";
 
-		m_BlueShader.reset(new Clover::Shader(blueVertexSrc, blueFragmentSrc));
+		m_FlatColorShader.reset(Clover::Shader::Create(flatColorVertexSrc, flatColorFragmentSrc));
 	}
 
 	void OnUpdate(Clover::Timestep ts) override
@@ -151,13 +156,17 @@ void main()
 
 		Clover::mat4 scale = glm::scale(Clover::mat4(1.0f), Clover::vec3(0.1f));
 
+		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+
 		for (int y = 0; y < 20; y++)
 		{
 			for (int x = 0; x < 20; x++)
 			{
 				Clover::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				Clover::mat4 transform = glm::translate(Clover::mat4(1.0f), pos) * scale;
-				Clover::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+
+				Clover::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
 
@@ -168,7 +177,11 @@ void main()
 
 	void OnImGuiRender() override
 	{
-		
+		ImGui::Begin("Settings");
+
+		ImGui::ColorEdit3("Square color", glm::value_ptr(m_SquareColor));
+
+		ImGui::End();
 	}
 
 	void OnEvent(Clover::Event& event) override
@@ -179,7 +192,7 @@ private:
 	std::shared_ptr<Clover::Shader > m_Shader;
 	std::shared_ptr<Clover::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Clover::Shader> m_BlueShader;
+	std::shared_ptr<Clover::Shader> m_FlatColorShader;
 	std::shared_ptr<Clover::VertexArray> m_SquareVA;
 
 	Clover::OrthographicCamera m_Camera;
@@ -188,6 +201,8 @@ private:
 
 	float m_CameraMoveSpeed = 5.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	Clover::RGBColor m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public Clover::Application

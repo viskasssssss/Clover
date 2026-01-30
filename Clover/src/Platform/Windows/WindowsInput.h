@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Clover/Input.h"
+#include "Clover/Core/Input.h"
 
 namespace Clover
 {

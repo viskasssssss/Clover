@@ -1,7 +1,7 @@
 #pragma once
 
 #include "cvpch.h"
-#include "Clover/Core.h"
+#include "Clover/Core/Core.h"
 
 namespace Clover {
 	enum class EventType

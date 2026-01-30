@@ -1,8 +1,8 @@
 #include "cvpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Clover/Input.h"
-#include "Clover/Keycodes.h"
+#include "Clover/Core/Input.h"
+#include "Clover/Core/Keycodes.h"
 
 namespace Clover
 {

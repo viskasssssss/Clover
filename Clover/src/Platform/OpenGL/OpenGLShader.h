@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Clover/Renderer/Shader.h"
-#include "Clover/Math.h"
+#include "Clover/Core/Math.h"
 
 // TODO: Remove
 typedef unsigned int GLenum;

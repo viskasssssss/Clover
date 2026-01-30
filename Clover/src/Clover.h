@@ -1,21 +1,20 @@
 #pragma once
 
 // -- Core
-#include "Clover/Application.h"
-#include "Clover/Layer.h"
-#include "Clover/Log.h"
+#include "Clover/Core/Application.h"
+#include "Clover/Core/Layer.h"
+#include "Clover/Core/Log.h"
 #include "Clover/Core/Timestep.h"
 // --
 
 // -- Input
-#include "Clover/KeyCodes.h"
-#include "Clover/MouseButtonCodes.h"
-#include "Clover/Input.h"
+#include "Clover/Core/KeyCodes.h"
+#include "Clover/Core/MouseButtonCodes.h"
+#include "Clover/Core/Input.h"
 // --
 
 #include "Clover/ImGui/ImGuiLayer.h"
 
-#include "Clover/OrthographicCameraController.h"
 
 // -- Rendering
 #include "Clover/Renderer/Renderer.h"
@@ -27,8 +26,9 @@
 #include "Clover/Renderer/VertexArray.h"
 
 #include "Clover/Renderer/OrthographicCamera.h"
+#include "Clover/Renderer/OrthographicCameraController.h"
 // --
 
 // -- Entry Point
-#include "Clover/EntryPoint.h"
+#include "Clover/Core/EntryPoint.h"
 //--

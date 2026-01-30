@@ -2,7 +2,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include "Clover/Window.h"
+#include "Clover/Core/Window.h"
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Clover

@@ -1,7 +1,7 @@
 #include "cvpch.h"
 #include "WindowsInput.h"
 
-#include "Clover/Application.h"
+#include "Clover/Core/Application.h"
 
 #include <GLFW/glfw3.h>
 

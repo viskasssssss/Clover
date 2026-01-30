@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Renderer/OrthographicCamera.h"
+#include "Clover/Renderer/OrthographicCamera.h"
 #include "Clover/Core/Timestep.h"
 
 #include "Clover/Events/ApplicationEvent.h"

@@ -147,33 +147,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Clover.h" />
-    <ClInclude Include="src\Clover\Application.h" />
-    <ClInclude Include="src\Clover\Core.h" />
+    <ClInclude Include="src\Clover\Core\Application.h" />
+    <ClInclude Include="src\Clover\Core\Core.h" />
+    <ClInclude Include="src\Clover\Core\EntryPoint.h" />
+    <ClInclude Include="src\Clover\Core\Input.h" />
+    <ClInclude Include="src\Clover\Core\KeyCodes.h" />
+    <ClInclude Include="src\Clover\Core\Layer.h" />
+    <ClInclude Include="src\Clover\Core\LayerStack.h" />
+    <ClInclude Include="src\Clover\Core\Log.h" />
+    <ClInclude Include="src\Clover\Core\Math.h" />
+    <ClInclude Include="src\Clover\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Clover\Core\Timestep.h" />
-    <ClInclude Include="src\Clover\EntryPoint.h" />
+    <ClInclude Include="src\Clover\Core\Window.h" />
     <ClInclude Include="src\Clover\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Clover\Events\Event.h" />
     <ClInclude Include="src\Clover\Events\KeyEvent.h" />
     <ClInclude Include="src\Clover\Events\MouseEvent.h" />
     <ClInclude Include="src\Clover\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Clover\Input.h" />
-    <ClInclude Include="src\Clover\KeyCodes.h" />
-    <ClInclude Include="src\Clover\Layer.h" />
-    <ClInclude Include="src\Clover\LayerStack.h" />
-    <ClInclude Include="src\Clover\Log.h" />
-    <ClInclude Include="src\Clover\Math.h" />
-    <ClInclude Include="src\Clover\MouseButtonCodes.h" />
-    <ClInclude Include="src\Clover\OrthographicCameraController.h" />
     <ClInclude Include="src\Clover\Renderer\Buffer.h" />
     <ClInclude Include="src\Clover\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Clover\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Clover\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Clover\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Clover\Renderer\Renderer.h" />
     <ClInclude Include="src\Clover\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Clover\Renderer\Shader.h" />
     <ClInclude Include="src\Clover\Renderer\Texture.h" />
     <ClInclude Include="src\Clover\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Clover\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -605,15 +605,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Clover\Application.cpp" />
+    <ClCompile Include="src\Clover\Core\Application.cpp" />
+    <ClCompile Include="src\Clover\Core\Layer.cpp" />
+    <ClCompile Include="src\Clover\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Clover\Core\Log.cpp" />
     <ClCompile Include="src\Clover\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Clover\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Clover\Layer.cpp" />
-    <ClCompile Include="src\Clover\LayerStack.cpp" />
-    <ClCompile Include="src\Clover\Log.cpp" />
-    <ClCompile Include="src\Clover\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Clover\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Clover\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Clover\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Clover\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Clover\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Clover\Renderer\RendererAPI.cpp" />

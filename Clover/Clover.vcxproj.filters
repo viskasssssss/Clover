@@ -57,17 +57,41 @@
     <ClInclude Include="src\Clover.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Application.h">
-      <Filter>src\Clover</Filter>
+    <ClInclude Include="src\Clover\Core\Application.h">
+      <Filter>src\Clover\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Core.h">
-      <Filter>src\Clover</Filter>
+    <ClInclude Include="src\Clover\Core\Core.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\EntryPoint.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Input.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\KeyCodes.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Layer.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\LayerStack.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Log.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Math.h">
+      <Filter>src\Clover\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\MouseButtonCodes.h">
+      <Filter>src\Clover\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Core\Timestep.h">
       <Filter>src\Clover\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\EntryPoint.h">
-      <Filter>src\Clover</Filter>
+    <ClInclude Include="src\Clover\Core\Window.h">
+      <Filter>src\Clover\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Events\ApplicationEvent.h">
       <Filter>src\Clover\Events</Filter>
@@ -84,27 +108,6 @@
     <ClInclude Include="src\Clover\ImGui\ImGuiLayer.h">
       <Filter>src\Clover\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Input.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\KeyCodes.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Layer.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\LayerStack.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Log.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Math.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\MouseButtonCodes.h">
-      <Filter>src\Clover</Filter>
-    </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Buffer.h">
       <Filter>src\Clover\Renderer</Filter>
     </ClInclude>
@@ -112,6 +115,9 @@
       <Filter>src\Clover\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\OrthographicCamera.h">
+      <Filter>src\Clover\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\OrthographicCameraController.h">
       <Filter>src\Clover\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\RenderCommand.h">
@@ -131,9 +137,6 @@
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\VertexArray.h">
       <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Window.h">
-      <Filter>src\Clover</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1424,8 +1427,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Clover\Application.cpp">
-      <Filter>src\Clover</Filter>
+    <ClCompile Include="src\Clover\Core\Application.cpp">
+      <Filter>src\Clover\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Core\Layer.cpp">
+      <Filter>src\Clover\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Core\LayerStack.cpp">
+      <Filter>src\Clover\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Core\Log.cpp">
+      <Filter>src\Clover\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\ImGui\ImGuiBuild.cpp">
       <Filter>src\Clover\ImGui</Filter>
@@ -1433,19 +1445,13 @@
     <ClCompile Include="src\Clover\ImGui\ImGuiLayer.cpp">
       <Filter>src\Clover\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Clover\Layer.cpp">
-      <Filter>src\Clover</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\LayerStack.cpp">
-      <Filter>src\Clover</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\Log.cpp">
-      <Filter>src\Clover</Filter>
-    </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Buffer.cpp">
       <Filter>src\Clover\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Clover\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Clover\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\RenderCommand.cpp">

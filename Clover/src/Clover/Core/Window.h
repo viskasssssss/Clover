@@ -2,7 +2,7 @@
 
 #include "cvpch.h"
 
-#include "Clover/Core.h"
+#include "Clover/Core/Core.h"
 #include "Clover/Events/Event.h"
 
 namespace Clover

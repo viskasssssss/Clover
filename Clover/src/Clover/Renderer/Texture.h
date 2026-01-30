@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Clover/Core.h"
+#include "Clover/Core/Core.h"
 
 namespace Clover
 {

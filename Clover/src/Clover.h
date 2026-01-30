@@ -28,7 +28,3 @@
 #include "Clover/Renderer/OrthographicCamera.h"
 #include "Clover/Renderer/OrthographicCameraController.h"
 // --
-
-// -- Entry Point
-#include "Clover/Core/EntryPoint.h"
-//--

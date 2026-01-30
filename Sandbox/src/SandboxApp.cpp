@@ -19,7 +19,7 @@ public:
 			 0.0f,  0.5f, 0.0f,		0.8f, 0.8f, 0.2f, 1.0f,
 		};
 
-		std::shared_ptr<Clover::VertexBuffer> vertexBuffer;
+		Clover::Ref<Clover::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Clover::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		Clover::BufferLayout layout = {
@@ -32,7 +32,7 @@ public:
 
 
 		unsigned int indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Clover::IndexBuffer> indexBuffer;
+		Clover::Ref<Clover::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Clover::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -45,7 +45,7 @@ public:
 			-0.5f,  0.5f, 0.0f,
 		};
 
-		std::shared_ptr<Clover::VertexBuffer> squareVB;
+		Clover::Ref<Clover::VertexBuffer> squareVB;
 		squareVB.reset(Clover::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout({
@@ -54,7 +54,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		unsigned int squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Clover::IndexBuffer> squareIB;
+		Clover::Ref<Clover::IndexBuffer> squareIB;
 		squareIB.reset(Clover::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -189,11 +189,11 @@ void main()
 		
 	}
 private:
-	std::shared_ptr<Clover::Shader > m_Shader;
-	std::shared_ptr<Clover::VertexArray> m_VertexArray;
+	Clover::Ref<Clover::Shader > m_Shader;
+	Clover::Ref<Clover::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Clover::Shader> m_FlatColorShader;
-	std::shared_ptr<Clover::VertexArray> m_SquareVA;
+	Clover::Ref<Clover::Shader> m_FlatColorShader;
+	Clover::Ref<Clover::VertexArray> m_SquareVA;
 
 	Clover::OrthographicCamera m_Camera;
 	Clover::vec3 m_CameraPosition;

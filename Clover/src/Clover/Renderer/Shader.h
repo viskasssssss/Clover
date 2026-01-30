@@ -12,6 +12,7 @@ namespace Clover
 
 		// TODO: virtual void UploadUBO(UniformBuffer buffer);
 
+		static Shader* Create(const std::string& filepath);
 		static Shader* Create(const std::string& vertSrc, const std::string& fragSrc);
 	};
 }

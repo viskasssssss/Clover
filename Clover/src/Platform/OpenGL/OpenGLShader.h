@@ -3,12 +3,16 @@
 #include "Clover/Renderer/Shader.h"
 #include "Clover/Math.h"
 
+// TODO: Remove
+typedef unsigned int GLenum;
+
 namespace Clover
 {
 	class OpenGLShader : public Shader
 	{
 	public:
 		OpenGLShader(const std::string& vertSrc, const std::string& fragSrc);
+		OpenGLShader(const std::string& filepath);
 		~OpenGLShader();
 
 		void Bind() const override;
@@ -22,6 +26,10 @@ namespace Clover
 		void UploadUniformMat4(const std::string& name, const mat4& matrix);
 		void UploadUniformMat3(const std::string& name, const mat4& matrix);
 	private:
+		std::string ReadFile(const std::string& filepath);
+		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
+		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
+
 		uint32_t m_RendererID;
 	};
 }

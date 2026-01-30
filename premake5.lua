@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "Clover/vendor/GLFW/include"
 IncludeDir["Glad"] = "Clover/vendor/Glad/include"
 IncludeDir["ImGui"] = "Clover/vendor/imgui"
 IncludeDir["glm"] = "Clover/vendor/glm"
+IncludeDir["stb_image"] = "Clover/vendor/stb_image"
 
 include "Clover/vendor/GLFW"
 include "Clover/vendor/Glad"
@@ -38,6 +39,8 @@ project "Clover"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -49,7 +52,9 @@ project "Clover"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
+
 	}
 	
 	links

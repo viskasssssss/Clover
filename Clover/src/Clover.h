@@ -21,6 +21,7 @@
 
 #include "Clover/Renderer/Buffer.h"
 #include "Clover/Renderer/Shader.h"
+#include "Clover/Renderer/Texture.h"
 #include "Clover/Renderer/VertexArray.h"
 
 #include "Clover/Renderer/OrthographicCamera.h"

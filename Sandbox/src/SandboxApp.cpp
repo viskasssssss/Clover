@@ -4,7 +4,6 @@
 
 #include <imgui/imgui.h>
 
-
 class ExampleLayer : public Clover::Layer
 {
 public:
@@ -94,7 +93,7 @@ void main()
 }
 )";
 
-		m_Shader.reset(Clover::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Clover::Shader::Create("Triangle Shader", vertexSrc, fragmentSrc);
 
 		std::string flatColorVertexSrc = R"(
 #version 330 core
@@ -128,15 +127,15 @@ void main()
 }
 )";
 
-		m_FlatColorShader.reset(Clover::Shader::Create(flatColorVertexSrc, flatColorFragmentSrc));
+		m_FlatColorShader = Clover::Shader::Create("Flat Color Shader", flatColorVertexSrc, flatColorFragmentSrc);
 
-		m_TextureShader.reset(Clover::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Clover::Texture2D::Create("assets/textures/cat.png");
 		m_CloverLogoTexture = Clover::Texture2D::Create("assets/textures/Clover-Logo.png"); 
 
-		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Clover::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Clover::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Clover::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Clover::Timestep ts) override
@@ -179,11 +178,13 @@ void main()
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Clover::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(Clover::mat4(1.0f), Clover::vec3(1.5f)));
+		Clover::Renderer::Submit(textureShader, m_SquareVA, glm::scale(Clover::mat4(1.0f), Clover::vec3(1.5f)));
 
 		m_CloverLogoTexture->Bind();
-		Clover::Renderer::Submit(m_TextureShader, m_SquareVA, 
+		Clover::Renderer::Submit(textureShader, m_SquareVA,
 			glm::translate(Clover::mat4(1.0f), Clover::vec3(1.5f, 0.0f, 0.0f)) *  glm::scale(Clover::mat4(1.0f), Clover::vec3(1.5f))
 		);
 
@@ -208,10 +209,11 @@ void main()
 		
 	}
 private:
+	Clover::ShaderLibrary m_ShaderLibrary;
 	Clover::Ref<Clover::Shader > m_Shader;
 	Clover::Ref<Clover::VertexArray> m_VertexArray;
 
-	Clover::Ref<Clover::Shader> m_FlatColorShader, m_TextureShader;
+	Clover::Ref<Clover::Shader> m_FlatColorShader;
 	Clover::Ref<Clover::VertexArray> m_SquareVA;
 
 	Clover::Ref<Clover::Texture2D> m_Texture, m_CloverLogoTexture;

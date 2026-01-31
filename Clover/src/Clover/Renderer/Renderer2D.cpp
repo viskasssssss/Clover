@@ -84,6 +84,7 @@ namespace Clover
 		CV_PROFILE_FUNCTION();
 
 		s_Data->TextureShader->SetFloat4("u_Color", color);
+		s_Data->TextureShader->SetFloat("u_TilingFactor", 1.0f);
 		s_Data->WhiteTexture->Bind();
 
 		mat4 transform =
@@ -97,21 +98,72 @@ namespace Clover
 		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
 	}
 
-	void Renderer2D::DrawQuad(const vec2& position, const vec2& size, const Ref<Texture2D>& texture)
+	void Renderer2D::DrawQuad(const vec2& position, const vec2& size, const Ref<Texture2D>& texture, float tilingFactor, const color& tintColor)
 	{
-		DrawQuad({ position.x, position.y, 0.0f }, size, texture);
+		DrawQuad({ position.x, position.y, 0.0f }, size, texture, tilingFactor, tintColor);
 	}
 
-	void Renderer2D::DrawQuad(const vec3& position, const vec2& size, const Ref<Texture2D>& texture)
+	void Renderer2D::DrawQuad(const vec3& position, const vec2& size, const Ref<Texture2D>& texture, float tilingFactor, const color& tintColor)
 	{
 		CV_PROFILE_FUNCTION();
 
-		s_Data->TextureShader->SetFloat4("u_Color", vec4(1.0f));
+		s_Data->TextureShader->SetFloat4("u_Color", tintColor);
+		s_Data->TextureShader->SetFloat("u_TilingFactor", tilingFactor);
 
 		texture->Bind();
 
 		mat4 transform =
 			glm::translate(mat4(1.0f), position) *
+			glm::scale(mat4(1.0f), { size.x, size.y, 1.0f });
+
+		s_Data->TextureShader->SetMat4("u_Transform", transform);
+
+		s_Data->QuadVertexArray->Bind();
+		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
+	}
+
+	void Renderer2D::DrawRotatedQuad(const vec2& position, const vec2& size, float rotation, const color& color)
+	{
+		DrawRotatedQuad({ position.x, position.y, 0.0f }, size, rotation, color);
+	}
+
+	void Renderer2D::DrawRotatedQuad(const vec3& position, const vec2& size, float rotation, const color& color)
+	{
+		CV_PROFILE_FUNCTION();
+
+		s_Data->TextureShader->SetFloat4("u_Color", color);
+		s_Data->TextureShader->SetFloat("u_TilingFactor", 1.0f);
+		s_Data->WhiteTexture->Bind();
+
+		mat4 transform =
+			glm::translate(mat4(1.0f), position) *
+			glm::rotate(mat4(1.0f), rotation, { 0.0f, 0.0f, 1.0f }) *
+			glm::scale(mat4(1.0f), { size.x, size.y, 1.0f });
+
+
+		s_Data->TextureShader->SetMat4("u_Transform", transform);
+
+		s_Data->QuadVertexArray->Bind();
+		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
+	}
+
+	void Renderer2D::DrawRotatedQuad(const vec2& position, const vec2& size, float rotation, const Ref<Texture2D>& texture, float tilingFactor, const color& tintColor)
+	{
+		DrawRotatedQuad({ position.x, position.y, 0.0f }, size, rotation, texture, tilingFactor, tintColor);
+	}
+
+	void Renderer2D::DrawRotatedQuad(const vec3& position, const vec2& size, float rotation, const Ref<Texture2D>& texture, float tilingFactor, const color& tintColor)
+	{
+		CV_PROFILE_FUNCTION();
+
+		s_Data->TextureShader->SetFloat4("u_Color", tintColor);
+		s_Data->TextureShader->SetFloat("u_TilingFactor", tilingFactor);
+
+		texture->Bind();
+
+		mat4 transform =
+			glm::translate(mat4(1.0f), position) *
+			glm::rotate(mat4(1.0f), rotation, { 0.0f, 0.0f, 1.0f }) *
 			glm::scale(mat4(1.0f), { size.x, size.y, 1.0f });
 
 		s_Data->TextureShader->SetMat4("u_Transform", transform);

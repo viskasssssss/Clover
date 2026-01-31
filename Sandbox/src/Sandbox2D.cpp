@@ -35,13 +35,15 @@ void Sandbox2D::OnUpdate(Clover::Timestep ts)
 		CV_PROFILE_SCOPE("Renderer Draw");
 		Clover::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		Clover::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+		Clover::Renderer2D::DrawRotatedQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, glm::radians(45.0f), { 0.8f, 0.2f, 0.3f, 1.0f });
 
-		for (int x = -15; x < 16; x++)
-		{
-			for (int y = -15; y < 16; y++)
-				Clover::Renderer2D::DrawQuad({ x * 0.4f, y * 0.4f, -0.1f }, { 0.4f, 0.4f }, m_CatTexture);
-		}
+		//for (int x = -15; x < 16; x++)
+		//{
+		//	for (int y = -15; y < 16; y++)
+		//		Clover::Renderer2D::DrawQuad({ x * 0.4f, y * 0.4f, -0.1f }, { 0.4f, 0.4f }, m_CatTexture);
+		//}
+
+		Clover::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 6.0f, 6.0f }, m_CatTexture, 32.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
 
 		Clover::Renderer2D::EndScene();
 	}

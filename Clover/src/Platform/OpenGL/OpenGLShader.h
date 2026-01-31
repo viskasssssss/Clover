@@ -18,6 +18,14 @@ namespace Clover
 		void Bind() const override;
 		void Unbind() const override;
 
+		virtual void SetMat4(const std::string& name, const mat4& value) override;
+		virtual void SetMat3(const std::string& name, const mat3& value) override;
+		virtual void SetFloat4(const std::string& name, const vec4& value) override;
+		virtual void SetFloat3(const std::string& name, const vec3& value) override;
+		virtual void SetFloat2(const std::string& name, const vec2& value) override;
+		virtual void SetFloat(const std::string& name, float value) override;
+		virtual void SetInt(const std::string& name, int value) override;
+
 		const std::string GetName() const override { return m_Name; }
 
 		void UploadUniformInt(const std::string& name, int value);

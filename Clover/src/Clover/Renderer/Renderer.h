@@ -7,6 +7,9 @@
 
 namespace Clover
 {
+	/**
+	* @brief Main Renderer Class
+	*/
 	class Renderer
 	{
 	public:

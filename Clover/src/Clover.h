@@ -17,6 +17,7 @@
 
 
 // -- Rendering
+#include "Clover/Renderer/Renderer2D.h"
 #include "Clover/Renderer/Renderer.h"
 #include "Clover/Renderer/RenderCommand.h"
 

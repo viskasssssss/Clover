@@ -52,6 +52,14 @@ namespace Clover
 		glUseProgram(0);
 	}
 
+	void OpenGLShader::SetMat4(const std::string& name, const mat4& value)      { UploadUniformMat4(name, value); }
+	void OpenGLShader::SetMat3(const std::string& name, const mat3& value)      { UploadUniformMat3(name, value); }
+	void OpenGLShader::SetFloat4(const std::string& name, const vec4& value)    { UploadUniformFloat4(name, value); }
+	void OpenGLShader::SetFloat3(const std::string& name, const vec3& value)    { UploadUniformFloat3(name, value); }
+	void OpenGLShader::SetFloat2(const std::string& name, const vec2& value)    { UploadUniformFloat2(name, value); }
+	void OpenGLShader::SetFloat(const std::string& name, float value)           { UploadUniformFloat(name, value); }
+	void OpenGLShader::SetInt(const std::string& name, int value)               { UploadUniformInt(name, value); }
+
 	void OpenGLShader::UploadUniformInt(const std::string& name, int value)
 	{
 		GLint location = glGetUniformLocation(m_RendererID, name.c_str());

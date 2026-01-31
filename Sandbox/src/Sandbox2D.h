@@ -21,5 +21,7 @@ private:
 	Clover::Ref<Clover::VertexArray> m_SquareVA;
 	Clover::Ref<Clover::Shader > m_FlatColorShader;
 
+	Clover::Ref<Clover::Texture2D> m_CatTexture;
+
 	Clover::Color m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };

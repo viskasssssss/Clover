@@ -1426,6 +1426,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Clover\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Clover\Core\Application.cpp">

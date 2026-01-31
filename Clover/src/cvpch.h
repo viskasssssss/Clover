@@ -15,7 +15,8 @@
 #include <unordered_set>
 
 #include "Clover/Core/Log.h"
-#include "Clover/Events/Event.h"
+
+#include "Clover/Debug/Instrumentor.h"
 
 #ifdef CLOVER_PLATFORM_WINDOWS
 	#include <Windows.h>

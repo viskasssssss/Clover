@@ -19,6 +19,8 @@ namespace Clover
 
 	void Renderer2D::Init()
 	{
+		CV_PROFILE_FUNCTION();
+
 		s_Data = new Renderer2DStorage();
 		s_Data->QuadVertexArray = VertexArray::Create();
 
@@ -54,18 +56,22 @@ namespace Clover
 
 	void Renderer2D::Shutdown()
 	{
+		CV_PROFILE_FUNCTION();
+
 		delete s_Data;
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
+		CV_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->Bind();
 		s_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
 	{
-
+		CV_PROFILE_FUNCTION();
 	}
 
 	void Renderer2D::DrawQuad(const vec2& position, const vec2& size, const color& color)
@@ -75,6 +81,8 @@ namespace Clover
 
 	void Renderer2D::DrawQuad(const vec3& position, const vec2& size, const color& color)
 	{
+		CV_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", color);
 		s_Data->WhiteTexture->Bind();
 
@@ -96,6 +104,8 @@ namespace Clover
 
 	void Renderer2D::DrawQuad(const vec3& position, const vec2& size, const Ref<Texture2D>& texture)
 	{
+		CV_PROFILE_FUNCTION();
+
 		s_Data->TextureShader->SetFloat4("u_Color", vec4(1.0f));
 
 		texture->Bind();

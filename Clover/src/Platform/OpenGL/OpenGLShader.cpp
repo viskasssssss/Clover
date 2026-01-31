@@ -17,6 +17,8 @@ namespace Clover
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
 	{
+		CV_PROFILE_FUNCTION();
+
 		std::string source = ReadFile(filepath);
 		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
@@ -31,6 +33,8 @@ namespace Clover
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertSrc, const std::string& fragSrc)
 		: m_Name(name)
 	{
+		CV_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertSrc;
 		sources[GL_FRAGMENT_SHADER] = fragSrc;
@@ -39,26 +43,32 @@ namespace Clover
 
 	OpenGLShader::~OpenGLShader()
 	{
+		CV_PROFILE_FUNCTION();
+
 		glDeleteProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Bind() const
 	{
+		CV_PROFILE_FUNCTION();
+
 		glUseProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Unbind() const
 	{
+		CV_PROFILE_FUNCTION();
+
 		glUseProgram(0);
 	}
 
-	void OpenGLShader::SetMat4(const std::string& name, const mat4& value)      { UploadUniformMat4(name, value); }
-	void OpenGLShader::SetMat3(const std::string& name, const mat3& value)      { UploadUniformMat3(name, value); }
-	void OpenGLShader::SetFloat4(const std::string& name, const vec4& value)    { UploadUniformFloat4(name, value); }
-	void OpenGLShader::SetFloat3(const std::string& name, const vec3& value)    { UploadUniformFloat3(name, value); }
-	void OpenGLShader::SetFloat2(const std::string& name, const vec2& value)    { UploadUniformFloat2(name, value); }
-	void OpenGLShader::SetFloat(const std::string& name, float value)           { UploadUniformFloat(name, value); }
-	void OpenGLShader::SetInt(const std::string& name, int value)               { UploadUniformInt(name, value); }
+	void OpenGLShader::SetMat4(const std::string& name, const mat4& value)      { CV_PROFILE_FUNCTION(); UploadUniformMat4(name, value); }
+	void OpenGLShader::SetMat3(const std::string& name, const mat3& value)      { CV_PROFILE_FUNCTION(); UploadUniformMat3(name, value); }
+	void OpenGLShader::SetFloat4(const std::string& name, const vec4& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat4(name, value); }
+	void OpenGLShader::SetFloat3(const std::string& name, const vec3& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat3(name, value); }
+	void OpenGLShader::SetFloat2(const std::string& name, const vec2& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat2(name, value); }
+	void OpenGLShader::SetFloat(const std::string& name, float value)           { CV_PROFILE_FUNCTION(); UploadUniformFloat(name, value); }
+	void OpenGLShader::SetInt(const std::string& name, int value)               { CV_PROFILE_FUNCTION(); UploadUniformInt(name, value); }
 
 	void OpenGLShader::UploadUniformInt(const std::string& name, int value)
 	{
@@ -104,6 +114,8 @@ namespace Clover
 
 	std::string OpenGLShader::ReadFile(const std::string& filepath)
 	{
+		CV_PROFILE_FUNCTION();
+
 		std::string result;
 		std::ifstream in(filepath, std::ios::in | std::ios::binary);
 		if (in)
@@ -124,6 +136,8 @@ namespace Clover
 
 	std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
 	{
+		CV_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> shaderSources;
 
 		const char* typeToken = "#type";
@@ -147,6 +161,8 @@ namespace Clover
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
+		CV_PROFILE_FUNCTION();
+
 		GLuint program = glCreateProgram();
 		CLOVER_CORE_ASSERT(shaderSources.size() <= 2, "Only 2 shaders are supported for now");
 		std::array<GLenum, 2> glShaderIDs;

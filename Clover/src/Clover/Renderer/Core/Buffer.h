@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Clover/Core/Core.h"
+
 namespace Clover
 {
 	enum class ShaderDataType

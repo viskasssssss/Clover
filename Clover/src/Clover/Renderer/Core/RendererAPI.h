@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Clover/Core/Math.h"
+#include "Clover/Core/Base/Math.h"
 
 #include "VertexArray.h"
 

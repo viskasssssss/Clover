@@ -1,9 +1,9 @@
 #include "cvpch.h"
 #include "Shader.h"
 
-#include "Renderer.h"
+#include "Clover/Renderer/Renderer.h"
 
-#include "Platform/OpenGL/OpenGLShader.h"
+#include "Backends/OpenGL/OpenGLShader.h"
 
 namespace Clover
 {

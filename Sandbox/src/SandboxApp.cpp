@@ -1,7 +1,5 @@
 #include <Clover.h>
-#include <Clover/Core/EntryPoint.h>
-
-#include "Platform/OpenGL/OpenGLShader.h"
+#include <Clover/Core/Base/EntryPoint.h>
 
 #include <imgui/imgui.h>
 

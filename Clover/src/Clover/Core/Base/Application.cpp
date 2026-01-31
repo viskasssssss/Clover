@@ -1,9 +1,9 @@
 #include "cvpch.h"
 #include "Application.h"
 
-#include "Clover/Core/Log.h"
-#include "Clover/Core/Input.h"
-#include "Layer.h"
+#include "Clover/Core/Logging/Log.h"
+#include "Clover/Core/Input/Input.h"
+#include "Clover/Core/Layers/Layer.h"
 
 #include "Clover/Renderer/Renderer.h"
 

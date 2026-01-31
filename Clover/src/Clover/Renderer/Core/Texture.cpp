@@ -1,9 +1,9 @@
 #include "cvpch.h"
 #include "Texture.h"
 
-#include "Renderer.h"
+#include "Clover/Renderer/Renderer.h"
 
-#include "Platform/OpenGL/OpenGLTexture.h"
+#include "Backends/OpenGL/OpenGLTexture.h"
 
 namespace Clover
 {

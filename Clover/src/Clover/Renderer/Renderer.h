@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RenderCommand.h"
+#include "Clover/Renderer/Core/RenderCommand.h"
 
-#include "OrthographicCamera.h"
-#include "Shader.h"
+#include "Clover/Renderer/Core/OrthographicCamera.h"
+#include "Clover/Renderer/Core/Shader.h"
 
 namespace Clover
 {

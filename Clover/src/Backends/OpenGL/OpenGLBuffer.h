@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Clover/Renderer/Buffer.h"
+#include "Clover/Renderer/Core/Buffer.h"
 
 namespace Clover
 {

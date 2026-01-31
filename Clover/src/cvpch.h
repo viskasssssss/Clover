@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Clover/Core/Log.h"
+#include "Clover/Core/Logging/Log.h"
 
 #include "Clover/Debug/Instrumentor.h"
 

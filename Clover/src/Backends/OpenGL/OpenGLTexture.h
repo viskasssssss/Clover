@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Clover/Renderer/Texture.h"
+#include "Clover/Renderer/Core/Texture.h"
 
 #include <glad/glad.h>
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Clover/Renderer/OrthographicCamera.h"
-#include "Clover/Core/Timestep.h"
+#include "Clover/Renderer/Core/OrthographicCamera.h"
+#include "Clover/Core/Base/Timestep.h"
 
 #include "Clover/Events/ApplicationEvent.h"
 #include "Clover/Events/MouseEvent.h"

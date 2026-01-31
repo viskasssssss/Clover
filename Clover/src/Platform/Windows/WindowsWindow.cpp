@@ -1,6 +1,6 @@
 #include "cvpch.h"
 #include "WindowsWindow.h"
-#include "Clover/Renderer/GraphicsContext.h"
+#include "Clover/Renderer/Core/GraphicsContext.h"
 
 #include "Clover/Events/ApplicationEvent.h"
 #include "Clover/Events/KeyEvent.h"
@@ -60,7 +60,7 @@ namespace Clover
 			++s_GLFWWindowCount;
 		}
 
-		m_Context = new OpenGLContext(m_Window);
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);

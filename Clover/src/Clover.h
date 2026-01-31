@@ -1,31 +1,31 @@
 #pragma once
 
 // -- Core
-#include "Clover/Core/Application.h"
-#include "Clover/Core/Layer.h"
-#include "Clover/Core/Log.h"
-#include "Clover/Core/Timestep.h"
+#include "Clover/Core/Base/Application.h"
+#include "Clover/Core/Layers/Layer.h"
+#include "Clover/Core/Logging/Log.h"
+#include "Clover/Core/Base/Timestep.h"
 // --
 
 // -- Input
-#include "Clover/Core/KeyCodes.h"
-#include "Clover/Core/MouseButtonCodes.h"
-#include "Clover/Core/Input.h"
+#include "Clover/Core/Input/KeyCodes.h"
+#include "Clover/Core/Input/MouseButtonCodes.h"
+#include "Clover/Core/Input/Input.h"
 // --
 
 #include "Clover/ImGui/ImGuiLayer.h"
 
 
 // -- Rendering
-#include "Clover/Renderer/Renderer2D.h"
+#include "Clover/Renderer/2D/Renderer2D.h"
 #include "Clover/Renderer/Renderer.h"
-#include "Clover/Renderer/RenderCommand.h"
+#include "Clover/Renderer/Core/RenderCommand.h"
 
-#include "Clover/Renderer/Buffer.h"
-#include "Clover/Renderer/Shader.h"
-#include "Clover/Renderer/Texture.h"
-#include "Clover/Renderer/VertexArray.h"
+#include "Clover/Renderer/Core/Buffer.h"
+#include "Clover/Renderer/Core/Shader.h"
+#include "Clover/Renderer/Core/Texture.h"
+#include "Clover/Renderer/Core/VertexArray.h"
 
-#include "Clover/Renderer/OrthographicCamera.h"
-#include "Clover/Renderer/OrthographicCameraController.h"
+#include "Clover/Renderer/Core/OrthographicCamera.h"
+#include "Clover/Renderer/Core/OrthographicCameraController.h"
 // --

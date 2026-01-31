@@ -5,8 +5,8 @@
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
-#include "Clover/Core/Application.h"
-#include "Clover/Core/KeyCodes.h"
+#include "Clover/Core/Base/Application.h"
+#include "Clover/Core/Input/KeyCodes.h"
 
 // TEMPORARY
 #include <GLFW/glfw3.h>

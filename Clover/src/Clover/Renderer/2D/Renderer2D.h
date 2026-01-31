@@ -1,10 +1,10 @@
 #pragma once
 
-#include "OrthographicCamera.h"
+#include "Clover/Renderer/Core/OrthographicCamera.h"
 
-#include "Clover/Core/Math.h"
+#include "Clover/Core/Base/Math.h"
 
-#include "Texture.h"
+#include "Clover/Renderer/Core/Texture.h"
 
 namespace Clover
 {

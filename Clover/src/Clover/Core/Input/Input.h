@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Clover/Core/Core.h"
-#include "Clover/Core/KeyCodes.h"
-#include "Clover/Core/MouseButtonCodes.h"
+#include "Clover/Core/Input/KeyCodes.h"
+#include "Clover/Core/Input/MouseButtonCodes.h"
 
 namespace Clover
 {

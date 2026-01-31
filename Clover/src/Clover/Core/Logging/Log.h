@@ -2,7 +2,7 @@
 
 #include <spdlog/spdlog.h>
 
-#include "Core.h"
+#include "Clover/Core/Core.h"
 
 namespace Clover {
 	class CLOVER_API Log

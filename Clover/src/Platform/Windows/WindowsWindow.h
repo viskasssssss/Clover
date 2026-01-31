@@ -2,8 +2,8 @@
 
 #include <GLFW/glfw3.h>
 
-#include "Clover/Core/Window.h"
-#include "Platform/OpenGL/OpenGLContext.h"
+#include "Clover/Core/Base/Window.h"
+#include "Clover/Renderer/Core/GraphicsContext.h"
 
 namespace Clover
 {
@@ -30,7 +30,7 @@ namespace Clover
 		virtual void Shutdown();
 		
 		GLFWwindow* m_Window;
-		GraphicsContext* m_Context;
+		Ref<GraphicsContext> m_Context;
 
 		struct WindowData
 		{

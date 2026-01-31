@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Clover/Renderer/VertexArray.h"
+#include "Clover/Renderer/Core/VertexArray.h"
 
 namespace Clover
 {

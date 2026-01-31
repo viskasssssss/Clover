@@ -1,9 +1,9 @@
 #include "cvpch.h"
 #include "Renderer2D.h"
 
-#include "VertexArray.h"
-#include "Shader.h"
-#include "RenderCommand.h"
+#include "Clover/Renderer/Core/VertexArray.h"
+#include "Clover/Renderer/Core/Shader.h"
+#include "Clover/Renderer/Core/RenderCommand.h"
 
 namespace Clover
 {

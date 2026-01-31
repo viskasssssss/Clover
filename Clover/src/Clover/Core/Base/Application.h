@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Core.h"
+#include "Clover/Core/Core.h"
 
 #include "Window.h"
-#include "Clover/Core/LayerStack.h"
+#include "Clover/Core/Layers/LayerStack.h"
 
 #include "Clover/Events/Event.h"
 #include "Clover/Events/ApplicationEvent.h"
 
-#include "Clover/Core/Timestep.h"
+#include "Clover/Core/Base/Timestep.h"
 
 #include "Clover/ImGui/ImGuiLayer.h"
 

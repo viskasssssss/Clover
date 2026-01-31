@@ -123,7 +123,7 @@ namespace Clover
     };
 }
 
-// TODO: Remove
+// TODO: Remove!
 #define CLOVER_PROFILE 0
 
 #if CLOVER_PROFILE

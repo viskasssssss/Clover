@@ -62,18 +62,25 @@ namespace Clover
 		glUseProgram(0);
 	}
 
-	void OpenGLShader::SetMat4(const std::string& name, const mat4& value)      { CV_PROFILE_FUNCTION(); UploadUniformMat4(name, value); }
-	void OpenGLShader::SetMat3(const std::string& name, const mat3& value)      { CV_PROFILE_FUNCTION(); UploadUniformMat3(name, value); }
-	void OpenGLShader::SetFloat4(const std::string& name, const vec4& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat4(name, value); }
-	void OpenGLShader::SetFloat3(const std::string& name, const vec3& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat3(name, value); }
-	void OpenGLShader::SetFloat2(const std::string& name, const vec2& value)    { CV_PROFILE_FUNCTION(); UploadUniformFloat2(name, value); }
-	void OpenGLShader::SetFloat(const std::string& name, float value)           { CV_PROFILE_FUNCTION(); UploadUniformFloat(name, value); }
-	void OpenGLShader::SetInt(const std::string& name, int value)               { CV_PROFILE_FUNCTION(); UploadUniformInt(name, value); }
+	void OpenGLShader::SetMat4(const std::string& name, const mat4& value)               { CV_PROFILE_FUNCTION(); UploadUniformMat4(name, value); }
+	void OpenGLShader::SetMat3(const std::string& name, const mat3& value)               { CV_PROFILE_FUNCTION(); UploadUniformMat3(name, value); }
+	void OpenGLShader::SetFloat4(const std::string& name, const vec4& value)             { CV_PROFILE_FUNCTION(); UploadUniformFloat4(name, value); }
+	void OpenGLShader::SetFloat3(const std::string& name, const vec3& value)             { CV_PROFILE_FUNCTION(); UploadUniformFloat3(name, value); }
+	void OpenGLShader::SetFloat2(const std::string& name, const vec2& value)             { CV_PROFILE_FUNCTION(); UploadUniformFloat2(name, value); }
+	void OpenGLShader::SetFloat(const std::string& name, float value)                    { CV_PROFILE_FUNCTION(); UploadUniformFloat(name, value); }
+	void OpenGLShader::SetInt(const std::string& name, int value)                        { CV_PROFILE_FUNCTION(); UploadUniformInt(name, value); }
+	void OpenGLShader::SetIntArray(const std::string& name, int* values, uint32_t count) { CV_PROFILE_FUNCTION(); UploadUniformIntArray(name, values, count); }
 
 	void OpenGLShader::UploadUniformInt(const std::string& name, int value)
 	{
 		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
 		glUniform1i(location, value);
+	}
+
+	void OpenGLShader::UploadUniformIntArray(const std::string& name, int* values, uint32_t count)
+	{
+		GLint location = glGetUniformLocation(m_RendererID, name.c_str());
+		glUniform1iv(location, count, values);
 	}
 
 	void OpenGLShader::UploadUniformFloat(const std::string& name, float value)

@@ -192,9 +192,6 @@
     <ClInclude Include="src\Clover\Renderer\Renderer.h">
       <Filter>src\Clover\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>

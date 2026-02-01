@@ -184,7 +184,6 @@
     <ClInclude Include="src\Clover\Renderer\Core\Texture.h" />
     <ClInclude Include="src\Clover\Renderer\Core\VertexArray.h" />
     <ClInclude Include="src\Clover\Renderer\Renderer.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cvpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />

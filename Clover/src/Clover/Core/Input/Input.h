@@ -9,6 +9,8 @@ namespace Clover
 	class CLOVER_API Input
 	{
 	public:
+		virtual ~Input() = default;
+
 		inline static bool IsKeyPressed(int keycode) { return s_Instance->IsKeyPressedImpl(keycode); }
 		inline static bool IsKeyPressed(KeyCode keycode) { return s_Instance->IsKeyPressedImpl((int)keycode); }
 
@@ -25,6 +27,6 @@ namespace Clover
 		virtual float GetMouseYImpl() = 0;
 		virtual std::pair<float, float> GetMousePositionImpl() = 0;
 	private:
-		static Input* s_Instance;
+		static Scope<Input> s_Instance;
 	};
 }

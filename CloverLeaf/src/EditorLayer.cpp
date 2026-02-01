@@ -1,5 +1,7 @@
 #include "EditorLayer.h"
 
+#include "EditorThemes.h"
+
 #include <imgui/imgui.h>
 
 namespace Clover
@@ -19,6 +21,8 @@ namespace Clover
 		fbSpec.Width = 1280;
 		fbSpec.Height = 720;
 		m_Framebuffer = Clover::Framebuffer::Create(fbSpec);
+
+		Themes::ApplyCloverDarkTheme();
 	}
 
 	void EditorLayer::OnDetach()

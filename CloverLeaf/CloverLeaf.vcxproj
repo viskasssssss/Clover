@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\EditorLayer.h" />
+    <ClInclude Include="src\EditorThemes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CloverLeafApp.cpp" />

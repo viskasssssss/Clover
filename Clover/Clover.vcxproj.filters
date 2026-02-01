@@ -4,11 +4,32 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Backends">
+      <UniqueIdentifier>{D76BAFAE-C3CE-3E53-6C54-770958960AD6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Backends\OpenGL">
+      <UniqueIdentifier>{2B7D6F45-97DE-4C53-204C-93058CAC8312}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Clover">
       <UniqueIdentifier>{07B86809-F36F-AA56-5C77-83B2484E4547}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Clover\Core">
       <UniqueIdentifier>{BFF86873-2B84-D637-3495-592CA09F3238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Core\Base">
+      <UniqueIdentifier>{A9A4C514-9533-4FDE-3E52-63D92AC05F84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Core\Input">
+      <UniqueIdentifier>{FEFBFFAD-6A68-BBA8-335C-53069F87DD10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Core\Layers">
+      <UniqueIdentifier>{9E621874-8A5C-41C6-73C9-D7D65F62A732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Core\Logging">
+      <UniqueIdentifier>{55288816-C15F-D0AD-CA69-34D13620F7A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Debug">
+      <UniqueIdentifier>{BD6B94E0-A964-B332-D296-98B7BEEE923E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Clover\Events">
       <UniqueIdentifier>{0B36ACF6-774C-AA8C-C0C3-35AE2C197B14}</UniqueIdentifier>
@@ -19,11 +40,14 @@
     <Filter Include="src\Clover\Renderer">
       <UniqueIdentifier>{8DF38C49-F954-6A57-82C2-B009EE22A116}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Clover\Renderer\2D">
+      <UniqueIdentifier>{12339AF3-FE2C-C345-E799-5956D33229B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Clover\Renderer\Core">
+      <UniqueIdentifier>{0558FD42-F17C-4CC3-1AC8-3153064C4BE1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Platform\OpenGL">
-      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -54,44 +78,68 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLContext.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLFramebuffer.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLShader.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLTexture.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Backends\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Clover.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Core\Base\Application.h">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Base\EntryPoint.h">
+      <Filter>src\Clover\Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Base\Math.h">
+      <Filter>src\Clover\Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Base\Timestep.h">
+      <Filter>src\Clover\Core\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Base\Window.h">
+      <Filter>src\Clover\Core\Base</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Core\Core.h">
       <Filter>src\Clover\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Core\Base\EntryPoint.h">
-      <Filter>src\Clover\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Clover\Core\Input\Input.h">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Core\Input\KeyCodes.h">
-      <Filter>src\Clover\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Core\Layers\Layer.h">
-      <Filter>src\Clover\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Core\Layers\LayerStack.h">
-      <Filter>src\Clover\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Core\Logging\Log.h">
-      <Filter>src\Clover\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Core\Base\Math.h">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Core\Input\MouseButtonCodes.h">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Input</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Core\Base\Timestep.h">
-      <Filter>src\Clover\Core</Filter>
+    <ClInclude Include="src\Clover\Core\Layers\Layer.h">
+      <Filter>src\Clover\Core\Layers</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Core\Base\Window.h">
-      <Filter>src\Clover\Core</Filter>
+    <ClInclude Include="src\Clover\Core\Layers\LayerStack.h">
+      <Filter>src\Clover\Core\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Core\Logging\Log.h">
+      <Filter>src\Clover\Core\Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Debug\Instrumentor.h">
+      <Filter>src\Clover\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Events\ApplicationEvent.h">
       <Filter>src\Clover\Events</Filter>
@@ -108,53 +156,41 @@
     <ClInclude Include="src\Clover\ImGui\ImGuiLayer.h">
       <Filter>src\Clover\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\2D\Renderer2D.h">
+      <Filter>src\Clover\Renderer\2D</Filter>
+    </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Core\Buffer.h">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\Core\Framebuffer.h">
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Core\GraphicsContext.h">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Core\OrthographicCamera.h">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Core\OrthographicCameraController.h">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Core\RenderCommand.h">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\Core\RendererAPI.h">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\Core\Shader.h">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\Core\Texture.h">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Renderer\Core\VertexArray.h">
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Renderer.h">
       <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Renderer\Core\RendererAPI.h">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Renderer\Core\Shader.h">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Renderer\Core\Texture.h">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Clover\Renderer\Core\VertexArray.h">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLBuffer.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLContext.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLRendererAPI.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLShader.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLTexture.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Backends\OpenGL\OpenGLVertexArray.h">
-      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1425,23 +1461,40 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Clover\Renderer\2D\Renderer2D.h" />
-    <ClInclude Include="src\Clover\Debug\Instrumentor.h" />
-    <ClInclude Include="src\Clover\Renderer\Core\Framebuffer.h" />
-    <ClInclude Include="src\Backends\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLFramebuffer.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Backends\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Backends\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Clover\Core\Base\Application.cpp">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Base</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Core\Layers\Layer.cpp">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Core\Layers\LayerStack.cpp">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Core\Logging\Log.cpp">
-      <Filter>src\Clover\Core</Filter>
+      <Filter>src\Clover\Core\Logging</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\ImGui\ImGuiBuild.cpp">
       <Filter>src\Clover\ImGui</Filter>
@@ -1449,50 +1502,41 @@
     <ClCompile Include="src\Clover\ImGui\ImGuiLayer.cpp">
       <Filter>src\Clover\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\2D\Renderer2D.cpp">
+      <Filter>src\Clover\Renderer\2D</Filter>
+    </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Core\Buffer.cpp">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\Framebuffer.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\GraphicsContext.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Core\OrthographicCamera.cpp">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Core\OrthographicCameraController.cpp">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Core\RenderCommand.cpp">
-      <Filter>src\Clover\Renderer</Filter>
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\RendererAPI.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\Shader.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\Texture.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Clover\Renderer\Core\VertexArray.cpp">
+      <Filter>src\Clover\Renderer\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\Renderer.cpp">
       <Filter>src\Clover\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\Renderer\Core\RendererAPI.cpp">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\Renderer\Core\Shader.cpp">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\Renderer\Core\Texture.cpp">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Clover\Renderer\Core\VertexArray.cpp">
-      <Filter>src\Clover\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLBuffer.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLContext.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLRendererAPI.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLShader.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLTexture.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Backends\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
@@ -1506,9 +1550,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Clover\Renderer\2D\Renderer2D.cpp" />
-    <ClCompile Include="src\Clover\Renderer\Core\GraphicsContext.cpp" />
-    <ClCompile Include="src\Clover\Renderer\Core\Framebuffer.cpp" />
-    <ClCompile Include="src\Backends\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

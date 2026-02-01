@@ -1,5 +1,6 @@
 workspace "Clover"
 	architecture "x64"
+	startproject "CloverLeaf"
 
 	configurations
 	{
@@ -18,10 +19,13 @@ IncludeDir["ImGui"] = "Clover/vendor/imgui"
 IncludeDir["glm"] = "Clover/vendor/glm"
 IncludeDir["stb_image"] = "Clover/vendor/stb_image"
 
-include "Clover/vendor/GLFW"
-include "Clover/vendor/Glad"
-include "Clover/vendor/imgui"
+group "Dependencies"
+	include "Clover/vendor/GLFW"
+	include "Clover/vendor/Glad"
+	include "Clover/vendor/imgui"
+group ""
 
+-- Clover Engine
 project "Clover"
 	location "Clover"
 	kind "StaticLib"
@@ -93,6 +97,7 @@ project "Clover"
 		runtime "Release"
 		optimize "on"
 
+-- Sandbox Project
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
@@ -118,8 +123,70 @@ project "Sandbox"
 	{
 		"Clover/vendor/spdlog/include",
 		"Clover/src",
-		"%{IncludeDir.GLFW}",
 		"Clover/vendor",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glm}"
+	}
+
+	buildoptions { "/utf-8" }
+
+	links
+	{
+		"Clover"
+	}
+
+	filter "system:windows"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines
+		{
+			"CLOVER_PLATFORM_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "CLOVER_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "CLOVER_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "CLOVER_DIST"
+		runtime "Release"
+		symbols "on"
+
+-- Clover Editor
+project "CloverLeaf"
+	location "CloverLeaf"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
+	includedirs
+	{
+		"Clover/vendor/spdlog/include",
+		"Clover/src",
+		"Clover/vendor",
+		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}"
 	}
 

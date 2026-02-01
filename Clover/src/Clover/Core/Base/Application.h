@@ -17,7 +17,7 @@ namespace Clover
 	class CLOVER_API Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "Clover App");
 		virtual ~Application();
 
 		void Run();

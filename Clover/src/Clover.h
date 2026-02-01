@@ -15,6 +15,9 @@
 
 #include "Clover/ImGui/ImGuiLayer.h"
 
+#include "Clover/Scene/Scene.h"
+#include "Clover/Scene/Entity.h"
+#include "Clover/Scene/Components.h"
 
 // -- Rendering
 #include "Clover/Renderer/2D/Renderer2D.h"

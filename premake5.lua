@@ -18,6 +18,7 @@ IncludeDir["Glad"] = "Clover/vendor/Glad/include"
 IncludeDir["ImGui"] = "Clover/vendor/imgui"
 IncludeDir["glm"] = "Clover/vendor/glm"
 IncludeDir["stb_image"] = "Clover/vendor/stb_image"
+IncludeDir["entt"] = "Clover/vendor/entt/include"
 
 group "Dependencies"
 	include "Clover/vendor/GLFW"
@@ -57,7 +58,8 @@ project "Clover"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 
 	}
 	
@@ -114,18 +116,14 @@ project "Sandbox"
 		"%{prj.name}/src/**.cpp"
 	}
 
-	defines
-	{
-		"_CRT_SECURE_NO_WARNINGS"
-	}
-
 	includedirs
 	{
 		"Clover/vendor/spdlog/include",
 		"Clover/src",
 		"Clover/vendor",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	buildoptions { "/utf-8" }
@@ -176,18 +174,14 @@ project "CloverLeaf"
 		"%{prj.name}/src/**.cpp"
 	}
 
-	defines
-	{
-		"_CRT_SECURE_NO_WARNINGS"
-	}
-
 	includedirs
 	{
 		"Clover/vendor/spdlog/include",
 		"Clover/src",
 		"Clover/vendor",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	buildoptions { "/utf-8" }

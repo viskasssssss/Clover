@@ -46,6 +46,9 @@
     <Filter Include="src\Clover\Renderer\Core">
       <UniqueIdentifier>{0558FD42-F17C-4CC3-1AC8-3153064C4BE1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Clover\Scene">
+      <UniqueIdentifier>{64CEA2E1-50C7-C133-79F9-A6B86551A13F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -191,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\Renderer.h">
       <Filter>src\Clover\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Clover\Scene\Scene.h">
+      <Filter>src\Clover\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1458,6 +1464,8 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\Clover\Scene\Components.h" />
+    <ClInclude Include="src\Clover\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Backends\OpenGL\OpenGLBuffer.cpp">
@@ -1535,6 +1543,9 @@
     <ClCompile Include="src\Clover\Renderer\Renderer.cpp">
       <Filter>src\Clover\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Clover\Scene\Scene.cpp">
+      <Filter>src\Clover\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1547,5 +1558,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\Clover\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>

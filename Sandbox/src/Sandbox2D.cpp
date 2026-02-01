@@ -12,6 +12,11 @@ void Sandbox2D::OnAttach()
 	CV_PROFILE_FUNCTION();
 
 	m_CatTexture = Clover::Texture2D::Create("assets/textures/cat.png");
+
+	Clover::FramebufferSpecification fbSpec;
+	fbSpec.Width = 1280;
+	fbSpec.Height = 720;
+	m_Framebuffer = Clover::Framebuffer::Create(fbSpec);
 }
 
 void Sandbox2D::OnDetach()
@@ -28,6 +33,9 @@ void Sandbox2D::OnUpdate(Clover::Timestep ts)
 	Clover::Renderer2D::ResetStats();
 	{
 		CV_PROFILE_SCOPE("Renderer Prep");
+
+		m_Framebuffer->Bind();
+
 		Clover::RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.10f, 1.0f });
 		Clover::RenderCommand::Clear();
 	}
@@ -55,6 +63,8 @@ void Sandbox2D::OnUpdate(Clover::Timestep ts)
 		}
 
 		Clover::Renderer2D::EndScene();
+
+		m_Framebuffer->Unbind();
 	}
 }
 
@@ -114,8 +124,8 @@ void Sandbox2D::OnImGuiRender()
 	ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
 	ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
 
-	uint32_t textureID = m_CatTexture->GetRendererID();
-	ImGui::Image(textureID, ImVec2(256.0f, 256.0f), {0, 1}, {1, 0});
+	uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+	ImGui::Image(textureID, ImVec2(1280.0f, 720.0f), {0, 1}, {1, 0});
 
 	ImGui::End();
 

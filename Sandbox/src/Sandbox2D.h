@@ -20,6 +20,7 @@ private:
 	// Temp
 	Clover::Ref<Clover::VertexArray> m_SquareVA;
 	Clover::Ref<Clover::Shader > m_FlatColorShader;
+	Clover::Ref<Clover::Framebuffer> m_Framebuffer;
 
 	Clover::Ref<Clover::Texture2D> m_CatTexture;
 

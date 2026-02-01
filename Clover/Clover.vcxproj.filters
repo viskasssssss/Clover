@@ -1427,6 +1427,8 @@
     </ClInclude>
     <ClInclude Include="src\Clover\Renderer\2D\Renderer2D.h" />
     <ClInclude Include="src\Clover\Debug\Instrumentor.h" />
+    <ClInclude Include="src\Clover\Renderer\Core\Framebuffer.h" />
+    <ClInclude Include="src\Backends\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Clover\Core\Base\Application.cpp">
@@ -1506,5 +1508,7 @@
     </ClCompile>
     <ClCompile Include="src\Clover\Renderer\2D\Renderer2D.cpp" />
     <ClCompile Include="src\Clover\Renderer\Core\GraphicsContext.cpp" />
+    <ClCompile Include="src\Clover\Renderer\Core\Framebuffer.cpp" />
+    <ClCompile Include="src\Backends\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

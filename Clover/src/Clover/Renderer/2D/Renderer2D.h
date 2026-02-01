@@ -5,6 +5,7 @@
 #include "Clover/Core/Base/Math.h"
 
 #include "Clover/Renderer/Core/Texture.h"
+#include "Clover/Renderer/Core/Camera.h"
 
 namespace Clover
 {
@@ -19,7 +20,8 @@ namespace Clover
 		static void Init();
 		static void Shutdown();
 
-		static void BeginScene(const OrthographicCamera& camera);
+		static void BeginScene(const Camera& camera, const mat4& transform);
+		static void BeginScene(const OrthographicCamera& camera); // TODO: REMOVE
 		static void EndScene();
 		static void Flush();
 

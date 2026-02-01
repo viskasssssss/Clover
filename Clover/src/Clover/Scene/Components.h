@@ -2,6 +2,8 @@
 
 #include "Clover/Core/Base/Math.h"
 
+#include "Clover/Renderer/Core/Camera.h"
+
 namespace Clover
 {
 	struct TagComponent
@@ -35,5 +37,16 @@ namespace Clover
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const color& color)
 			: Color(color) {}
+	};
+
+	struct CameraComponent
+	{
+		Clover::Camera Camera;
+		bool Main = true;
+
+		CameraComponent() = default;
+		CameraComponent(const CameraComponent&) = default;
+		CameraComponent(const mat4& projection)
+			: Camera(projection) {}
 	};
 }

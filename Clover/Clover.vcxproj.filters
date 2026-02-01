@@ -1466,6 +1466,7 @@
     </ClInclude>
     <ClInclude Include="src\Clover\Scene\Components.h" />
     <ClInclude Include="src\Clover\Scene\Entity.h" />
+    <ClInclude Include="src\Clover\Renderer\Core\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Backends\OpenGL\OpenGLBuffer.cpp">

@@ -29,7 +29,20 @@ namespace Clover
 		Entity square = m_ActiveScene->CreateEntity("Green Square");
 		square.AddComponent<SpriteRendererComponent>(vec4{ 0.1f, 0.9f, 0.3f, 1.0f });
 
+		Entity square2 = m_ActiveScene->CreateEntity("Red Square");
+		square2.AddComponent<SpriteRendererComponent>(vec4{ 0.8f, 0.2f, 0.3f, 1.0f });
+		square2.GetComponent<TransformComponent>().Transform[3][0] = -2.0f;
+		square2.GetComponent<TransformComponent>().Transform[3][2] = -2.0f;
+
 		m_SquareEntity = square;
+
+		m_CameraEntity = m_ActiveScene->CreateEntity("Camera");
+		m_CameraEntity.AddComponent<CameraComponent>(glm::perspective(45.0f, 1280.0f / 720.0f, 0.1f, 100.0f));
+		m_CameraEntity.GetComponent<TransformComponent>().Transform[3][2] = 5.0f;
+
+		m_SecondCamera = m_ActiveScene->CreateEntity("Second Camera");
+		auto& cc = m_SecondCamera.AddComponent<CameraComponent>(glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f));
+		cc.Main = false;
 	}
 
 	void EditorLayer::OnDetach()
@@ -48,15 +61,10 @@ namespace Clover
 		Renderer2D::ResetStats();
 		m_Framebuffer->Bind();
 
-		RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.10f, 1.0f });
+		RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.05f, 1.0f });
 		RenderCommand::Clear();
 
-		
-		Renderer2D::BeginScene(m_CameraController.GetCamera());
-
 		m_ActiveScene->OnUpdate(ts);
-
-		Renderer2D::EndScene();
 
 		m_Framebuffer->Unbind();
 	}
@@ -115,6 +123,15 @@ namespace Clover
 			auto& squareColor = m_SquareEntity.GetComponent<SpriteRendererComponent>().Color;
 			ImGui::ColorEdit4("Square Color", glm::value_ptr(squareColor));
 		}
+
+		ImGui::DragFloat3("Camera Transform", glm::value_ptr(m_CameraEntity.GetComponent<TransformComponent>().Transform[3]), 0.1f);
+
+		if (ImGui::Checkbox("Camera", &m_PrimaryCamera))
+		{
+			m_CameraEntity.GetComponent<CameraComponent>().Main = m_PrimaryCamera;
+			m_SecondCamera.GetComponent<CameraComponent>().Main = !m_PrimaryCamera;
+		}
+
 		ImGui::End();
 
 		ImGui::Begin("Statistics");

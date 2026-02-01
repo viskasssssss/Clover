@@ -28,13 +28,42 @@ namespace Clover
 
 	void Scene::OnUpdate(Timestep ts)
 	{
-		auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-		
-		for (auto entity : group)
+		// 2D Render
+		Camera* mainCamera = nullptr;
+		mat4* mainCameraTransform = nullptr;
 		{
-			auto& [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+			auto view = m_Registry.view<TransformComponent, CameraComponent>();
+			for (auto entity : view)
+			{
+				auto& transform = view.get<TransformComponent>(entity);
+				auto& camera = view.get<CameraComponent>(entity);
 
-			Renderer2D::DrawQuad(transform.Transform, sprite.Color);
+				if (camera.Main)
+				{
+					mainCamera = &camera.Camera;
+					mainCameraTransform = &transform.Transform;
+					break;
+				}
+			}
+		}
+
+		if (mainCamera)
+		{
+			Renderer2D::BeginScene(*mainCamera, *mainCameraTransform);
+
+			// Render sprites
+			{
+				auto view = m_Registry.view<TransformComponent, SpriteRendererComponent>();
+				for (auto entity : view)
+				{
+					auto& transform = view.get<TransformComponent>(entity);
+					auto& sprite = view.get<SpriteRendererComponent>(entity);
+
+					Renderer2D::DrawQuad(transform.Transform, sprite.Color);
+				}
+			}
+
+			Renderer2D::EndScene();
 		}
 	}
 }

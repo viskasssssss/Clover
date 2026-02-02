@@ -32,17 +32,45 @@ namespace Clover
 		Entity square2 = m_ActiveScene->CreateEntity("Red Square");
 		square2.AddComponent<SpriteRendererComponent>(vec4{ 0.8f, 0.2f, 0.3f, 1.0f });
 		square2.GetComponent<TransformComponent>().Transform[3][0] = -2.0f;
-		square2.GetComponent<TransformComponent>().Transform[3][2] = -2.0f;
 
 		m_SquareEntity = square;
 
 		m_CameraEntity = m_ActiveScene->CreateEntity("Camera");
-		m_CameraEntity.AddComponent<CameraComponent>(glm::perspective(45.0f, 1280.0f / 720.0f, 0.1f, 100.0f));
-		m_CameraEntity.GetComponent<TransformComponent>().Transform[3][2] = 5.0f;
+		m_CameraEntity.AddComponent<CameraComponent>();
 
 		m_SecondCamera = m_ActiveScene->CreateEntity("Second Camera");
-		auto& cc = m_SecondCamera.AddComponent<CameraComponent>(glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f));
+		auto& cc = m_SecondCamera.AddComponent<CameraComponent>();
 		cc.Main = false;
+
+		class Controller : public ScriptableEntity
+		{
+		public:
+			void OnCreate()
+			{
+			}
+
+			void OnDestroy()
+			{
+			}
+
+			void OnUpdate(Timestep ts)
+			{
+				auto& transform = GetComponent<TransformComponent>().Transform;
+				static float speed = 5.0f;
+
+				if (Input::IsKeyPressed(KeyCode::A))
+					transform[3][0] -= speed * ts;
+				if (Input::IsKeyPressed(KeyCode::D))
+					transform[3][0] += speed * ts;
+				if (Input::IsKeyPressed(KeyCode::S))
+					transform[3][1] -= speed * ts;
+				if (Input::IsKeyPressed(KeyCode::W))
+					transform[3][1] += speed * ts;
+			}
+		};
+
+		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<Controller>();
+		m_SquareEntity.AddComponent<NativeScriptComponent>().Bind<Controller>();
 	}
 
 	void EditorLayer::OnDetach()
@@ -131,6 +159,12 @@ namespace Clover
 			m_CameraEntity.GetComponent<CameraComponent>().Main = m_PrimaryCamera;
 			m_SecondCamera.GetComponent<CameraComponent>().Main = !m_PrimaryCamera;
 		}
+		{
+			auto& camera = m_SecondCamera.GetComponent<CameraComponent>().Camera;
+			float orthoSize = camera.GetOrthographicSize();
+			if (ImGui::DragFloat("Second Camera Ortho Size", &orthoSize))
+				camera.SetOrthographicSize(orthoSize);
+		}
 
 		ImGui::End();
 
@@ -159,6 +193,8 @@ namespace Clover
 			m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
 
 			m_CameraController.OnResize(viewportPanelSize.x, viewportPanelSize.y);
+
+			m_ActiveScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
 
 			ImDrawList* drawList = ImGui::GetWindowDrawList();
 			ImVec2 min = ImGui::GetCursorScreenPos();

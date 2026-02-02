@@ -34,7 +34,6 @@ The core infrastructure is under active refactoring to support upcoming features
 ### Current Goals (Subject to Change)
 - Rendering backend abstraction (Vulkan/DX11 in progress)
 - Implement 3D rendering pipeline (mesh loading, transforms, cameras)
-- Entity Component System (ECS) foundation
 - In-editor scripting and scene management 
 - Runtime gameplay logic support
 

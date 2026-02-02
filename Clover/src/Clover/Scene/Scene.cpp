@@ -28,6 +28,22 @@ namespace Clover
 
 	void Scene::OnUpdate(Timestep ts)
 	{
+		// Update Scripts
+		{
+			m_Registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc)
+			{
+				// TODO: Scene::OnUpdateRuntime
+				if (!nsc.Instance)
+				{
+					nsc.Instance = nsc.InstantiateScript();
+					nsc.Instance->m_Entity = { entity, this };
+					nsc.Instance->OnCreate();
+				}
+
+				nsc.Instance->OnUpdate(ts);
+			});
+		}
+
 		// 2D Render
 		Camera* mainCamera = nullptr;
 		mat4* mainCameraTransform = nullptr;
@@ -64,6 +80,20 @@ namespace Clover
 			}
 
 			Renderer2D::EndScene();
+		}
+	}
+
+	void Scene::OnViewportResize(uint32_t width, uint32_t height)
+	{
+		m_ViewportWidth = width;
+		m_ViewportHeight = height;
+
+		auto view = m_Registry.view<CameraComponent>();
+		for (auto entity : view)
+		{
+			auto& cc = view.get<CameraComponent>(entity);
+			if (!cc.FixedAspectRatio)
+				cc.Camera.SetViewportSize(width, height);
 		}
 	}
 }

@@ -188,6 +188,8 @@
     <ClInclude Include="src\Clover\Scene\Components.h" />
     <ClInclude Include="src\Clover\Scene\Entity.h" />
     <ClInclude Include="src\Clover\Scene\Scene.h" />
+    <ClInclude Include="src\Clover\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Clover\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cvpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -639,6 +641,7 @@
     <ClCompile Include="src\Clover\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Clover\Scene\Entity.cpp" />
     <ClCompile Include="src\Clover\Scene\Scene.cpp" />
+    <ClCompile Include="src\Clover\Scene\SceneCamera.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\cvpch.cpp">

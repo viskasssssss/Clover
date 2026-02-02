@@ -2,7 +2,8 @@
 
 #include "Clover/Core/Base/Math.h"
 
-#include "Clover/Renderer/Core/Camera.h"
+#include "Clover/Scene/SceneCamera.h"
+#include "Clover/Scene/ScriptableEntity.h"
 
 namespace Clover
 {
@@ -41,12 +42,26 @@ namespace Clover
 
 	struct CameraComponent
 	{
-		Clover::Camera Camera;
+		SceneCamera Camera;
 		bool Main = true;
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const mat4& projection)
-			: Camera(projection) {}
+	};
+
+	struct NativeScriptComponent
+	{
+		ScriptableEntity* Instance = nullptr;
+
+		ScriptableEntity*(*InstantiateScript)();
+		void (*DestroyScript)(NativeScriptComponent*);
+
+		template<typename T>
+		void Bind()
+		{
+			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
+			DestroyScript = [](NativeScriptComponent* nsc) { delete nsc->Instance; nsc->Instance = nullptr; };
+		}
 	};
 }

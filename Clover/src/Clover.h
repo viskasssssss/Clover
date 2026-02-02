@@ -17,6 +17,7 @@
 
 #include "Clover/Scene/Scene.h"
 #include "Clover/Scene/Entity.h"
+#include "Clover/Scene/ScriptableEntity.h"
 #include "Clover/Scene/Components.h"
 
 // -- Rendering

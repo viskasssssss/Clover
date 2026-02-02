@@ -1467,6 +1467,8 @@
     <ClInclude Include="src\Clover\Scene\Components.h" />
     <ClInclude Include="src\Clover\Scene\Entity.h" />
     <ClInclude Include="src\Clover\Renderer\Core\Camera.h" />
+    <ClInclude Include="src\Clover\Scene\SceneCamera.h" />
+    <ClInclude Include="src\Clover\Scene\ScriptableEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Backends\OpenGL\OpenGLBuffer.cpp">
@@ -1560,5 +1562,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Clover\Scene\Entity.cpp" />
+    <ClCompile Include="src\Clover\Scene\SceneCamera.cpp" />
   </ItemGroup>
 </Project>

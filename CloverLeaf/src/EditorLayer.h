@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Clover.h"
+#include "Panels/SceneHierarchyPanel.h"
 
 namespace Clover
 {
@@ -36,5 +37,8 @@ namespace Clover
 		bool m_ViewportFocused = false;
 		bool m_ViewportHovered = false;
 		vec2 m_ViewportSize = { 0.0f, 0.0f };
+
+		// Panels
+		SceneHierarchyPanel m_SceneHierarchyPanel;
 	};
 }

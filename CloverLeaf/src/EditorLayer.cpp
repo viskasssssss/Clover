@@ -71,6 +71,8 @@ namespace Clover
 
 		m_CameraEntity.AddComponent<NativeScriptComponent>().Bind<Controller>();
 		m_SquareEntity.AddComponent<NativeScriptComponent>().Bind<Controller>();
+
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
 
 	void EditorLayer::OnDetach()
@@ -143,6 +145,8 @@ namespace Clover
 			}
 			ImGui::EndMenuBar();
 		}
+
+		m_SceneHierarchyPanel.OnImGuiRender();
 
 		ImGui::Begin("Test");
 		if (m_SquareEntity)
